@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://wp2mag.blogspot.com/2021/07/product-placer.html
+ * @link       https://github.com/dchavours/
  * @since      1.0.0
  *
  * @package    Product_Placer_Simple
@@ -67,12 +67,12 @@ class Product_Placer_Simple {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PRODUCT PLACER SIMPLE_VERSION' ) ) {
-			$this->version = PRODUCT PLACER SIMPLE_VERSION;
+		if ( defined( 'PRODUCT_PLACER_SIMPLE_VERSION' ) ) {
+			$this->version = PRODUCT_PLACER_SIMPLE_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
-		$this->plugin_name = 'product placer simple';
+		$this->plugin_name = 'product-placer-simple';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -103,24 +103,24 @@ class Product_Placer_Simple {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product placer simple-loader.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product-placer-simple-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product placer simple-i18n.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product-placer-simple-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-product placer simple-admin.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-product-placer-simple-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-product placer simple-public.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-product-placer-simple-public.php';
 
 		$this->loader = new Product_Placer_Simple_Loader();
 

@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       https://wp2mag.blogspot.com/2021/07/product-placer.html
+ * @link       https://github.com/dchavours/
  * @since      1.0.0
  *
  * @package    Product_Placer_Simple
@@ -73,7 +73,7 @@ class Product_Placer_Simple_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/product placer simple-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/product-placer-simple-public.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +96,7 @@ class Product_Placer_Simple_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product placer simple-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-placer-simple-public.js', array( 'jquery' ), $this->version, false );
 
 	}
 

@@ -3,7 +3,7 @@
 /**
  * Register all actions and filters for the plugin
  *
- * @link       https://wp2mag.blogspot.com/2021/07/product-placer.html
+ * @link       https://github.com/dchavours/
  * @since      1.0.0
  *
  * @package    Product_Placer_Simple

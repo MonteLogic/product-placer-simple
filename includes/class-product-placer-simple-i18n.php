@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://wp2mag.blogspot.com/2021/07/product-placer.html
+ * @link       https://github.com/dchavours/
  * @since      1.0.0
  *
  * @package    Product_Placer_Simple
@@ -35,7 +35,7 @@ class Product_Placer_Simple_i18n {
 	public function load_plugin_textdomain() {
 
 		load_plugin_textdomain(
-			'product placer simple',
+			'product-placer-simple',
 			false,
 			dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/languages/'
 		);

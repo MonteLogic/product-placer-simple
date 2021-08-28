@@ -1,1 +1,0 @@
-# product-placer-simple

@@ -19,7 +19,7 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       https://wp2mag.blogspot.com/2021/07/product-placer.html
+ * @link       https://github.com/dchavours/
  * @since      1.0.0
  *
  * @package    Product_Placer_Simple
