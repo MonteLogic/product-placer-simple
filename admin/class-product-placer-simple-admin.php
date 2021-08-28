@@ -100,4 +100,31 @@ class Product_Placer_Simple_Admin {
 
 	}
 
+		/**
+	 * Register the menu and sub menu items for the admin area
+	 *
+	 * @since    1.0.0
+	 */
+	public function my_admin_menu() {
+
+		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'ppssettingscallbacks') , 'dashicons-info', 250  );
+
+		
+	
+		
+		// I'll deal with this later 
+		//	add_submenu_page( 'product-placer-simple/wp10settingsgeneral.php', 'Sub 1', 'PPS Importer', 'manage_options', 'ParentPagePPS', array( $this , 'wp10importercall' ));
+		
+		}
+
+	public function ppssettingscallbacks(){
+		//return views
+		require_once 'partials/ppssettingscallbacks.php';
+
+		}
+
 }
+
+
+
+

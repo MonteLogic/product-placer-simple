@@ -157,6 +157,13 @@ class Product_Placer_Simple {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		//add an admin menu page to the system
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'my_admin_menu' );
+
+
+
+
+
 	}
 
 	/**
