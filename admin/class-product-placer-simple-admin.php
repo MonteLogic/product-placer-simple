@@ -109,11 +109,13 @@ class Product_Placer_Simple_Admin {
 
 		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'ppssettingscallbacks') , 'dashicons-info', 250  );
 
+		// add_menu_page( $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $icon_url:string, $position:integer|null )
+		// add_submenu_page( $parent_slug:string, $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $position:integer|null )
 		
 	
 		
 		// I'll deal with this later 
-		//	add_submenu_page( 'product-placer-simple/wp10settingsgeneral.php', 'Sub 1', 'PPS Importer', 'manage_options', 'ParentPagePPS', array( $this , 'wp10importercall' ));
+			add_submenu_page( 'ParentPagePPS', 'Sub 1', 'PPS Importer', 'manage_options', 'SubPagePPS', array( $this , 'SubPagePPS_function' ));
 		
 		}
 
@@ -122,6 +124,14 @@ class Product_Placer_Simple_Admin {
 		require_once 'partials/ppssettingscallbacks.php';
 
 		}
+	
+	public function SubPagePPS_function(){
+
+		require_once 'partials/subPageOne.php';
+
+	}
+
+
 
 }
 
