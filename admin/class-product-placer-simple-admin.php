@@ -133,17 +133,18 @@ class Product_Placer_Simple_Admin {
 
 	public function register_pps_general_settings(){
 		//registers all settings for general settings page
-		register_setting( 'sunset-settings-group', 'profile_picture' );
+		register_setting( 'pps-settings-group', 'profile_picture' );
+		//register_setting( $option_group:string, $option_name:string, $args:array )
 
 
 	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
-		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'sunset_sidebar_options', 'pps_home');
+		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'sunset_sidebar_options', 'ParentPagePPS');
 		// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
 
 
 
 
-		add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'pps_home', 'pps-sidebar-options');
+		add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'ParentPagePPS', 'pps-sidebar-options');
 	//	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
 
 

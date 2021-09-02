@@ -19,3 +19,5 @@
 <h1>Product Placer Simple</h1>
 
 
+<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
+					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />'
