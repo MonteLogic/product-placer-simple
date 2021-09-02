@@ -131,6 +131,48 @@ class Product_Placer_Simple_Admin {
 
 	}
 
+	public function register_pps_general_settings(){
+		//registers all settings for general settings page
+		register_setting( 'sunset-settings-group', 'profile_picture' );
+
+
+	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
+		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'sunset_sidebar_options', 'pps_home');
+		// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
+
+
+
+
+		add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'pps_home', 'pps-sidebar-options');
+	//	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
+
+
+	}
+
+
+	function pps_sidebar_options() {
+		echo 'Customize your Sidebar Information';
+
+	}
+
+	function pps_sidebar_profile(){
+
+
+			$picture = esc_attr( get_option( 'profile_picture' ) );
+			echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
+					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
+		
+	
+		
+	}
+
+
+
+
+
+
+
+
 
 
 }
