@@ -20,4 +20,15 @@
 
 
 <input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />'
+					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />
+
+
+                <input type="text" name="product_name" value="'.$productName.'" placeholder="Product Name" />
+
+
+
+
+                <input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
+			<p class="description">Write short product description</p>
+
+            
