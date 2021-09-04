@@ -167,6 +167,22 @@ class Product_Placer_Simple_Admin {
 		
 	}
 
+/**
+ * 
+ * Register custom fields for product settings.
+ *
+
+ * @since      1.0.0
+ *
+ */
+
+
+		function pps_Register_Settings(){
+
+			register_setting( 'ppsGeneralSettings', 'number' );
+
+
+		}
 
 
 

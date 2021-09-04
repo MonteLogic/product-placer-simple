@@ -162,7 +162,9 @@ class Product_Placer_Simple {
 
 		// add register_pps_general_settings function
 
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'register_pps_general_settings' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'pps_Register_Settings' );
+
+
 
 
 

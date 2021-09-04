@@ -16,32 +16,6 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 
 
-<h1>Product Placer Simple</h1>
-
-
-<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />
-
-
-                <input type="text" name="product_name" value="'.$productName.'" placeholder="Product Name" />
-
-
-
-
-                <input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
-			<p class="description">Write short product description</p>
-
-            
-
-
-
-<input type="text" name="product_name" value="'.$productName.'" placeholder="Product Name" /> 
-
-
-
-<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
-			<p class="description">Write short product description</p>
-
 
             <h1>PPS Options</h1>
 <?php settings_errors(); ?>
@@ -69,8 +43,50 @@
 	</div>
 </div>
 
-<form method="post" action="options.php" class="sunset-general-form">
-	<?php settings_fields( 'sunset-settings-group' ); ?>
-	<?php do_settings_sections( 'alecaddd_sunset' ); ?>
-	<?php submit_button(); ?>
+<form method="post" action="options.php" class="pps-general-form">
+
+    <?php 
+    
+    settings_fields( 'ppsGeneralSettings');
+
+    
+    ?>
+
+    <input type="text" name="number" value="<?php echo get_option( 'number' ) ?>" placeholder="Product Name" />
+
+
+    <?php 
+
+
+/**
+ * 
+ * 
+ *
+
+ * @since      1.0.0
+ *
+ */
+
+    
+    
+
+
+    ?>
+	
+    
+    
+    
+    <?php 
+        // settings_fields( 'sunset-settings-group' ); 
+    
+    ?>
+	
+    <?php 
+        // do_settings_sections( 'alecaddd_sunset' ); 
+    ?>
+	
+    
+    <?php submit_button(); ?>
+
+
 </form>
