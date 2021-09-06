@@ -122,6 +122,13 @@ class Product_Placer_Simple {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-product-placer-simple-public.php';
 
+
+		/**
+		 * Widget class and related file function.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/widgets.php';
+
+
 		$this->loader = new Product_Placer_Simple_Loader();
 
 	}
@@ -165,7 +172,12 @@ class Product_Placer_Simple {
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'pps_Register_Settings' );
 
 
-
+		// Not sure if this widget addition functionality is plugin_admin or plugin_public 
+		// 
+		// 
+		$this->loader->add_action( 'widgets_init', $plugin_admin, 'wpdocs_register_widgets' );
+		
+	
 
 
 	}
