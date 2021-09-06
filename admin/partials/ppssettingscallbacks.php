@@ -30,13 +30,13 @@
 	
 ?>
 
-<div class="sunset-sidebar-preview">
-	<div class="sunset-sidebar">
+<div class="pps-sidebar-preview">
+	<div class="pps-sidebar">
 		<div class="image-container">
 			<div id="profile-picture-preview" class="profile-picture" style="background-image: url(<?php print $picture; ?>);"></div>
 		</div>
-		<h1 class="sunset-username"><?php print $fullName; ?></h1>
-		<h2 class="sunset-description"><?php print $description; ?></h2>
+		<h1 class="pps-username"><?php print $fullName; ?></h1>
+		<h2 class="pps-description"><?php print $description; ?></h2>
 		<div class="icons-wrapper">
 			
 		</div>
@@ -77,12 +77,12 @@
     
     
     <?php 
-        // settings_fields( 'sunset-settings-group' ); 
+        // settings_fields( 'pps-settings-group' ); 
     
     ?>
 	
     <?php 
-        // do_settings_sections( 'alecaddd_sunset' ); 
+        // do_settings_sections( 'pps_settings_thing' ); 
     ?>
 	
     

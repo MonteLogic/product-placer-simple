@@ -6,7 +6,7 @@ class My_Widget extends WP_Widget {
  
         parent::__construct(
             'my-text',  // Base ID
-            'My Text'   // Name
+            'Swag Text'   // Name
         );
  
         add_action( 'widgets_init', function() {

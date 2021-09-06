@@ -138,7 +138,7 @@ class Product_Placer_Simple_Admin {
 
 
 	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
-		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'sunset_sidebar_options', 'ParentPagePPS');
+		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'pps_sidebar_options', 'ParentPagePPS');
 		// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
 
 
