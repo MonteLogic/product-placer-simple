@@ -75,6 +75,10 @@ class Product_Placer_Simple_Admin {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/product-placer-simple-admin.css', array(), $this->version, 'all' );
 
+		// bootstrap to the admin side.
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/main.css', array(), $this->version, 'all' );
+	
+
 	}
 
 	/**
@@ -131,25 +135,6 @@ class Product_Placer_Simple_Admin {
 
 	}
 
-	public function register_pps_general_settings(){
-		//registers all settings for general settings page
-		register_setting( 'pps-settings-group', 'profile_picture' );
-		//register_setting( $option_group:string, $option_name:string, $args:array )
-
-
-	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
-		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'pps_sidebar_options', 'ParentPagePPS');
-		// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
-
-
-
-
-		add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'ParentPagePPS', 'pps-sidebar-options');
-	//	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
-
-
-	}
-
 
 	function pps_sidebar_options() {
 		echo 'Customize your Sidebar Information';
@@ -179,7 +164,44 @@ class Product_Placer_Simple_Admin {
 
 		function pps_Register_Settings(){
 
-			register_setting( 'ppsGeneralSettings', 'number' );
+		register_setting( 'ppsGeneralSettings', 'number' );
+
+					//registers all settings for general settings page
+		register_setting( 'ppsGeneralSettings', 'profile_picture' );
+		//register_setting( $option_group:string, $option_name:string, $args:array )
+
+
+		register_setting( 'ppsGeneralSettings', 'product_name' );
+		register_setting( 'ppsGeneralSettings', 'last_name' );
+		register_setting( 'ppsGeneralSettings', 'user_description' );
+		register_setting( 'ppsGeneralSettings', 'twitter_handler', 'pps_sanitize_twitter_handler' );
+		register_setting( 'ppsGeneralSettings', 'facebook_handler' );
+		register_setting( 'ppsGeneralSettings', 'selected_page' );
+		register_setting( 'ppsGeneralSettings', 'dropdown_settings' );
+		
+
+		
+	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
+	add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'pps_sidebar_options', 'ParentPagePPS');
+	// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
+
+
+
+
+	add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'ParentPagePPS', 'pps-sidebar-options');
+//	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
+
+
+	add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'product_pps', 'pps-sidebar-options');
+	//add_settings_field( $id:string, $title:string, $callback:callable, $page:string, $section:string, $args:array )
+	add_settings_field( 'sidebar-product-name', 'Product Name', 'product_sidebar_name', 'product_pps', 'pps-sidebar-options');
+	add_settings_field( 'sidebar-description', 'Description', 'pps_sidebar_description', 'product_pps', 'pps-sidebar-options');
+	add_settings_field( 'external-link', 'Link To External Product', 'link_external_product', 'product_pps', 'pps-sidebar-options');
+
+	// Dropdown field function
+	add_settings_field( 'dropdown-function', 'Link To Internal Product', 'show_drop_down', 'product_pps', 'pps-sidebar-options');	
+
+	
 
 
 		}

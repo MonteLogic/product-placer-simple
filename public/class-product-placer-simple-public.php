@@ -74,6 +74,9 @@ class Product_Placer_Simple_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/product-placer-simple-public.css', array(), $this->version, 'all' );
+		
+		// Adding bootstrap to the public facing website.
+        wp_enqueue_style( 'bootstrap.min', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css', array(), $this->version, 'all' );
 
 	}
 

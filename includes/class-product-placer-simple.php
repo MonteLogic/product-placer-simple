@@ -167,7 +167,7 @@ class Product_Placer_Simple {
 		//add an admin menu page to the system
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'my_admin_menu' );
 
-		// add register_pps_general_settings function
+		// add pps_Register_Settings function
 
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'pps_Register_Settings' );
 

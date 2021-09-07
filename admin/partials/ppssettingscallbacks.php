@@ -17,7 +17,7 @@
 
 
 
-            <h1>PPS Options</h1>
+<h1>PPS Options</h1>
 <?php settings_errors(); ?>
 
 <?php 
@@ -31,16 +31,17 @@
 ?>
 
 <div class="pps-sidebar-preview">
-	<div class="pps-sidebar">
-		<div class="image-container">
-			<div id="profile-picture-preview" class="profile-picture" style="background-image: url(<?php print $picture; ?>);"></div>
-		</div>
-		<h1 class="pps-username"><?php print $fullName; ?></h1>
-		<h2 class="pps-description"><?php print $description; ?></h2>
-		<div class="icons-wrapper">
-			
-		</div>
-	</div>
+    <div class="pps-sidebar">
+        <div class="image-container">
+            <div id="profile-picture-preview" class="profile-picture"
+                style="background-image: url(<?php print $picture; ?>);"></div>
+        </div>
+        <h1 class="pps-username"><?php print $fullName; ?></h1>
+        <h2 class="pps-description"><?php print $description; ?></h2>
+        <div class="icons-wrapper">
+
+        </div>
+    </div>
 </div>
 
 <form method="post" action="options.php" class="pps-general-form">
@@ -54,38 +55,22 @@
 
     <input type="text" name="number" value="<?php echo get_option( 'number' ) ?>" placeholder="Product Name" />
 
+    <input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
+    <input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />
 
-    <?php 
-
-
-/**
- * 
- * 
- *
-
- * @since      1.0.0
- *
- */
-
-    
-    
+    <input type="text" name="product_name" value="'.$productName.'" placeholder="Product Name" /> 
 
 
-    ?>
-	
-    
-    
-    
-    <?php 
-        // settings_fields( 'pps-settings-group' ); 
-    
-    ?>
-	
-    <?php 
-        // do_settings_sections( 'pps_settings_thing' ); 
-    ?>
-	
-    
+    <input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
+    <p class="description">Write short product description</p>
+
+
+
+    <input type="text" name="link_external_handler" value="<?php  $externalLink  ?>" placeholder="" />
+
+
+
+
     <?php submit_button(); ?>
 
 
