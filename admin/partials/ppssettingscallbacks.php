@@ -46,30 +46,24 @@
 
 <form method="post" action="options.php" class="pps-general-form">
 
-    <?php 
-    
-    settings_fields( 'ppsGeneralSettings');
 
+    <?php 
+
+
+    settings_fields( 'pps-settings-group');
+    // settings_fields( $option_group:string )
+    do_settings_sections( 'ParentPagePPS' );
+    // do_settings_sections( $page:string )
+
+
+
+    // This imports the alecadd settings. 
+    // settings_fields( 'sunset-settings-group');
+    // // settings_fields( $option_group:string )
+    // do_settings_sections( 'alecaddd_sunset' );
+    // // do_settings_sections( $page:string )
     
     ?>
-
-    <input type="text" name="number" value="<?php echo get_option( 'number' ) ?>" placeholder="Product Name" />
-
-    <input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-    <input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />
-
-    <input type="text" name="product_name" value="'.$productName.'" placeholder="Product Name" /> 
-
-
-    <input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
-    <p class="description">Write short product description</p>
-
-
-
-    <input type="text" name="link_external_handler" value="<?php  $externalLink  ?>" placeholder="" />
-
-
-
 
     <?php submit_button(); ?>
 

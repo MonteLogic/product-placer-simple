@@ -169,7 +169,7 @@ class Product_Placer_Simple {
 
 		// add pps_Register_Settings function
 
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'pps_Register_Settings' );
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'pps_custom_settings' );
 
 
 		// Not sure if this widget addition functionality is plugin_admin or plugin_public 

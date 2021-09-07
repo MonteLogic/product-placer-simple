@@ -11527,13 +11527,13 @@ h4.site-title a:active, .site-title.h4 a:active {
   text-decoration: none;
 }
 
-.sunset-general-form,
-.sunset-sidebar-preview {
+.pps-general-form,
+.pps-sidebar-preview {
   display: inline-block;
   float: left;
 }
 
-.sunset-sidebar-preview {
+.pps-sidebar-preview {
   width: 280px;
   background-color: #1F1F1F;
   padding: 20px;
@@ -11541,26 +11541,26 @@ h4.site-title a:active, .site-title.h4 a:active {
   margin-right: 20px;
 }
 
-.sunset-sidebar {
+.pps-sidebar {
   display: block;
   text-align: center;
 }
 
-h1.sunset-username, .sunset-username.h1,
-h2.sunset-description,
-.sunset-description.h2 {
+h1.pps-username, .pps-username.h1,
+h2.pps-description,
+.pps-description.h2 {
   font-weight: 100;
   color: #212529;
 }
 
-h1.sunset-username, .sunset-username.h1 {
+h1.pps-username, .pps-username.h1 {
   font-size: 24px;
   margin: 0 0 10px;
 }
 
 
-h2.sunset-description,
-.sunset-description.h2 {
+h2.pps-description,
+.pps-description.h2 {
   font-size: 13px;
   margin: 0 0 20px;
 }

@@ -136,10 +136,6 @@ class Product_Placer_Simple_Admin {
 	}
 
 
-	function pps_sidebar_options() {
-		echo 'Customize your Sidebar Information';
-
-	}
 
 	function pps_sidebar_profile(){
 
@@ -162,28 +158,30 @@ class Product_Placer_Simple_Admin {
  */
 
 
-		function pps_Register_Settings(){
+		function pps_custom_settings(){
 
-		register_setting( 'ppsGeneralSettings', 'number' );
+		
+		// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
+		add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'pps_sidebar_options', 'ParentPagePPS');
+		// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
+
+
+
+		register_setting( 'pps-settings-group', 'number' );
+		
 
 					//registers all settings for general settings page
-		register_setting( 'ppsGeneralSettings', 'profile_picture' );
+		register_setting( 'pps-settings-group', 'profile_picture' );
 		//register_setting( $option_group:string, $option_name:string, $args:array )
 
 
-		register_setting( 'ppsGeneralSettings', 'product_name' );
-		register_setting( 'ppsGeneralSettings', 'last_name' );
-		register_setting( 'ppsGeneralSettings', 'user_description' );
-		register_setting( 'ppsGeneralSettings', 'twitter_handler', 'pps_sanitize_twitter_handler' );
-		register_setting( 'ppsGeneralSettings', 'facebook_handler' );
-		register_setting( 'ppsGeneralSettings', 'selected_page' );
-		register_setting( 'ppsGeneralSettings', 'dropdown_settings' );
+		register_setting( 'pps-settings-group', 'last_name' );
+		register_setting( 'pps-settings-group', 'user_description' );
+		register_setting( 'pps-settings-group', 'twitter_handler', 'pps_sanitize_twitter_handler' );
+		register_setting( 'pps-settings-group', 'facebook_handler' );
+		register_setting( 'pps-settings-group', 'selected_page' );
+		register_setting( 'pps-settings-group', 'dropdown_settings' );
 		
-
-		
-	// Add Settings Section, I wonder if this is implemented any different. Or is harder to implement. 
-	add_settings_section( 'pps-sidebar-options', 'Sidebar Option', 'pps_sidebar_options', 'ParentPagePPS');
-	// add_settings_section( $id:string, $title:string, $callback:callable, $page:string )
 
 
 
@@ -192,14 +190,16 @@ class Product_Placer_Simple_Admin {
 //	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
 
 
-	add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'product_pps', 'pps-sidebar-options');
+	add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'ParentPagePPS', 'pps-sidebar-options');
 	//add_settings_field( $id:string, $title:string, $callback:callable, $page:string, $section:string, $args:array )
-	add_settings_field( 'sidebar-product-name', 'Product Name', 'product_sidebar_name', 'product_pps', 'pps-sidebar-options');
-	add_settings_field( 'sidebar-description', 'Description', 'pps_sidebar_description', 'product_pps', 'pps-sidebar-options');
-	add_settings_field( 'external-link', 'Link To External Product', 'link_external_product', 'product_pps', 'pps-sidebar-options');
+	add_settings_field( 'sidebar-product-name', 'Product Name', 'product_sidebar_name', 'ParentPagePPS', 'pps-sidebar-options');
+	add_settings_field( 'sidebar-description', 'Description', 'pps_sidebar_description', 'ParentPagePPS', 'pps-sidebar-options');
+	
+	//Todo: import the logic from mho into the function.
+	//add_settings_field( 'external-link', 'Link To External Product', 'link_external_product', 'ParentPagePPS', 'pps-sidebar-options');
 
 	// Dropdown field function
-	add_settings_field( 'dropdown-function', 'Link To Internal Product', 'show_drop_down', 'product_pps', 'pps-sidebar-options');	
+	//add_settings_field( 'dropdown-function', 'Link To Internal Product', 'show_drop_down', 'ParentPagePPS', 'pps-sidebar-options');	
 
 	
 
@@ -213,14 +213,34 @@ class Product_Placer_Simple_Admin {
 
 
 
+}
+
+
+function product_sidebar_name() {
+	echo 'Customize your Sidebar Information';
+
+}
 
 
 
+function pps_sidebar_options() {
+	echo 'Customize your Sidebar Information';
+
+}
+
+function pps_sidebar_profile() {
+	$picture = esc_attr( get_option( 'profile_picture' ) );
+	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
+			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
+
+}
 
 
 
-
-
+function pps_sidebar_description() {
+	$description = esc_attr( get_option( 'user_description' ) );
+	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
+			<p class="description">Write short product description</p>';
 }
 
 
