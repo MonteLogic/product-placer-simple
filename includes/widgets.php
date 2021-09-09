@@ -1,6 +1,16 @@
 <?php
  
-class My_Widget extends WP_Widget {
+
+ // The pps plugin will be split into two parts the widget side and the admin side. 
+
+ // The two groups will be pps-widget and pps-admin. 
+ // The ca theme will come already loaded with the group pps-widget.
+
+ // If class my_widget exists 
+
+ 
+
+class PPS_Widget_Plugin extends WP_Widget {
  
     function __construct() {
  
@@ -10,7 +20,7 @@ class My_Widget extends WP_Widget {
         );
  
         add_action( 'widgets_init', function() {
-            register_widget( 'My_Widget' );
+            register_widget( 'PPS_Widget_Plugin' );
         });
  
     }
@@ -68,5 +78,8 @@ class My_Widget extends WP_Widget {
     }
  
 }
-$my_widget = new My_Widget();
+
+
+
+$my_widget = new PPS_Widget_Plugin();
 ?>

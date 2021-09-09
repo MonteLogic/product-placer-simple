@@ -206,8 +206,9 @@ class Product_Placer_Simple_Admin {
 
 		}
 
+		
 		function wpdocs_register_widgets() {
-			register_widget( 'My_Widget' );
+			register_widget( 'PPS_Widget_Plugin' );
 		}
 
 
@@ -216,10 +217,12 @@ class Product_Placer_Simple_Admin {
 }
 
 
-function product_sidebar_name() {
-	echo 'Customize your Sidebar Information';
 
-}
+// Redundant in Plugin #1
+// function product_sidebar_name() {
+// 	echo 'Customize your Sidebar Information';
+
+// }
 
 
 
