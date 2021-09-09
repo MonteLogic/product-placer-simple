@@ -206,7 +206,8 @@ class Product_Placer_Simple_Admin {
 
 		}
 
-		
+
+
 		function wpdocs_register_widgets() {
 			register_widget( 'PPS_Widget_Plugin' );
 		}

@@ -16,7 +16,7 @@ class PPS_Widget_Plugin extends WP_Widget {
  
         parent::__construct(
             'my-text',  // Base ID
-            'Swag Text'   // Name
+            'Plugin Logic'   // Name
         );
  
         add_action( 'widgets_init', function() {
