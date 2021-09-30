@@ -220,10 +220,10 @@ class Product_Placer_Simple_Admin {
 
 
 // Redundant in Plugin #1
-// function product_sidebar_name() {
-// 	echo 'Customize your Sidebar Information';
+function product_sidebar_name() {
+	echo 'Customize your Sidebar Information';
 
-// }
+}
 
 
 
