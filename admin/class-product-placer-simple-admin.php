@@ -136,6 +136,40 @@ class Product_Placer_Simple_Admin {
 	}
 
 
+	// The function was used from another source outside of this project.
+	
+
+
+
+	function jal_install() {
+		global $wpdb;
+		$jal_db_version = '1.0';
+	
+	
+		$table_name = $wpdb->prefix . 'liveshoutbox';
+		
+		$charset_collate = $wpdb->get_charset_collate();
+	
+		$sql = "CREATE TABLE $table_name (
+			id mediumint(9) NOT NULL AUTO_INCREMENT,
+			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			name tinytext NOT NULL,
+			text text NOT NULL,
+			url varchar(55) DEFAULT '' NOT NULL,
+			PRIMARY KEY  (id)
+		) $charset_collate;";
+	
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sql );
+	
+		add_option( 'jal_db_version', $jal_db_version );
+	}
+
+
+
+
+
+
 
 	function pps_sidebar_profile(){
 
@@ -156,7 +190,6 @@ class Product_Placer_Simple_Admin {
  * @since      1.0.0
  *
  */
-
 
 		function pps_custom_settings(){
 
@@ -246,7 +279,3 @@ function pps_sidebar_description() {
 	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
 			<p class="description">Write short product description</p>';
 }
-
-
-
-

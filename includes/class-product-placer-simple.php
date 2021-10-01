@@ -176,7 +176,13 @@ class Product_Placer_Simple {
 		// 
 		// 
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'wpdocs_register_widgets' );
-		
+
+		// // Create a table for pps. 
+		// $this->loader->add_action( 'activated_plugin', $plugin_admin, 'upgrade_database_ppsimple' );
+	
+
+		// Create a table for pps. 
+		$this->loader->add_action( 'activated_plugin', $plugin_admin, 'jal_install' );
 	
 
 
