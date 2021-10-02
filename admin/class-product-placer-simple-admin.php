@@ -146,11 +146,11 @@ class Product_Placer_Simple_Admin {
 		$jal_db_version = '1.0';
 	
 	
-		$table_name = $wpdb->prefix . 'liveshoutbox';
+		$table_name = $wpdb->prefix . 'ppsimple';
 		
 		$charset_collate = $wpdb->get_charset_collate();
 	
-		$sql = "CREATE TABLE $table_name (
+		$sql = "CREATE TABLE IF NOT EXISTS $table_name (
 			id mediumint(9) NOT NULL AUTO_INCREMENT,
 			time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			name tinytext NOT NULL,
@@ -165,6 +165,24 @@ class Product_Placer_Simple_Admin {
 		add_option( 'jal_db_version', $jal_db_version );
 	}
 
+
+	function jal_install_data() {
+		global $wpdb;
+		
+		$welcome_name = 'Mr. WordPress';
+		$welcome_text = 'Congratulations, you just completed the installation!';
+		
+		$table_name = $wpdb->prefix . 'ppsimple';
+		
+		$wpdb->insert( 
+			$table_name, 
+			array( 
+				'time' => current_time( 'mysql' ), 
+				'name' => $welcome_name, 
+				'text' => $welcome_text, 
+			) 
+		);
+	}
 
 
 

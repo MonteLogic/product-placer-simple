@@ -184,7 +184,9 @@ class Product_Placer_Simple {
 		// Create a table for pps. 
 		$this->loader->add_action( 'activated_plugin', $plugin_admin, 'jal_install' );
 	
-
+		// Add to table for pps.
+		//  jal_install_data
+		$this->loader->add_action( 'activated_plugin', $plugin_admin, 'jal_install_data' );
 
 	}
 
