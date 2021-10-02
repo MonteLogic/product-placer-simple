@@ -188,6 +188,8 @@ class Product_Placer_Simple {
 		//  jal_install_data
 		$this->loader->add_action( 'activated_plugin', $plugin_admin, 'jal_install_data' );
 
+		$this->loader->add_action( 'admin_init', $plugin_admin, 'display_table_pps_values' );
+
 	}
 
 	/**

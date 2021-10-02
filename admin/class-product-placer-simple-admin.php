@@ -184,6 +184,19 @@ class Product_Placer_Simple_Admin {
 		);
 	}
 
+	function display_table_pps_values(){
+
+		//
+		// SELECT * FROM `wp_ppsimple` ORDER BY `name` LIMIT 50 
+		     global $wpdb;
+		
+		$result = $wpdb->get_row( "SELECT * FROM `wp_ppsimple` ORDER BY `name` LIMIT 50 " );
+
+		echo $result->name;
+
+		
+		}
+
 
 
 
@@ -297,3 +310,5 @@ function pps_sidebar_description() {
 	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
 			<p class="description">Write short product description</p>';
 }
+
+
