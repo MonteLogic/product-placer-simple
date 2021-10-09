@@ -5,8 +5,9 @@ class Read_Table_Data{
 
 
     	// Returns a string.
+        // Read_Table_Data::display_table_pps_values();
 
-	function display_table_pps_values(){
+	public static function display_table_pps_values(){
 
 		global $wpdb;
 		

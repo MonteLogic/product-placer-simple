@@ -52,6 +52,28 @@ class Product_Placer_Simple_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		$this->load_dependencies();
+
+	}
+
+
+	/**
+	 * Load the required dependencies for this plugin.
+	 *
+	 * Include the following files to run logic related to this file:
+	 * - Read data from table, functions consist of returnable values and logic which can be iterated upon.
+	 *	 : File - admin/database/read-table-data.php
+	 *	 : Classes - "Read_Table_Data"
+
+	 */
+
+
+	private function load_dependencies() {
+
+		include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/database/read-table-data.php';
+
+
+
 	}
 
 	/**
@@ -228,14 +250,20 @@ class Product_Placer_Simple_Admin {
 function product_sidebar_name() {
 	echo 'Customize your Sidebar Name';
 
-	if(!empty(display_table_pps_values())){
-		echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-		<input type="hidden" id="profile-picture" value="'.display_table_pps_values().'" />';
+	// '.Read_Table_Data::display_table_pps_values().'
+
+	if(!empty(Read_Table_Data::display_table_pps_values())){
+		echo '<input type="text" name="product_sidebar_name" 
+		value ="'.Read_Table_Data::display_table_pps_values().'" 
+		// 
+		
+		placeholder="Description" />
+		<p class="description">Write short product description</p>';
 
 	}
 
 
-	if(empty(display_table_pps_values())){
+	if(empty(Read_Table_Data::display_table_pps_values())){
 
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
