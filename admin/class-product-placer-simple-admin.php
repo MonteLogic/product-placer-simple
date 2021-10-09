@@ -184,16 +184,21 @@ class Product_Placer_Simple_Admin {
 		);
 	}
 
+	// Returns a string.
+
 	function display_table_pps_values(){
 
-		//
-		// SELECT * FROM `wp_ppsimple` ORDER BY `name` LIMIT 50 
-		     global $wpdb;
+		global $wpdb;
 		
 		$result = $wpdb->get_row( "SELECT * FROM `wp_ppsimple` ORDER BY `name` LIMIT 50 " );
 
+		$valueForView = $result->name;
+
+		if (!empty($valueForView)){
+
 		echo $result->name;
 
+	}
 		
 		}
 
@@ -283,16 +288,20 @@ class Product_Placer_Simple_Admin {
 
 
 
+
 // Redundant in Plugin #1
 function product_sidebar_name() {
-	echo 'Customize your Sidebar Information';
+	echo 'Customize your Sidebar Name';
+
+
+
 
 }
 
 
 
 function pps_sidebar_options() {
-	echo 'Customize your Sidebar Information';
+	echo 'Customize your Sidebar Options';
 
 }
 
