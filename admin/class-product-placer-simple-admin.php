@@ -182,16 +182,6 @@ class Product_Placer_Simple_Admin {
 
 
 
-	function pps_sidebar_profile(){
-
-
-			$picture = esc_attr( get_option( 'profile_picture' ) );
-			echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-					<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
-		
-	
-		
-	}
 
 /**
  * 
@@ -246,8 +236,6 @@ class Product_Placer_Simple_Admin {
 	//add_settings_field( 'dropdown-function', 'Link To Internal Product', 'show_drop_down', 'ParentPagePPS', 'pps-sidebar-options');	
 
 	
-
-
 		}
 
 
@@ -258,24 +246,19 @@ class Product_Placer_Simple_Admin {
 
 
 
-	// The Product_Placer_Simple_Admin class ends here. 
+	 
 }
-
+	
 
 
 // Redundant in Plugin #1
 function product_sidebar_name() {
-	echo 'Customize your Sidebar Name';
-
 	// '.Read_Table_Data::display_table_pps_values().'
 
 	if(!empty(Read_Table_Data::display_table_pps_values())){
-		echo '<input type="text" name="product_sidebar_name" 
-		value ="'.Read_Table_Data::display_table_pps_values().'" 
-		// 
-		
-		placeholder="Description" />
-		<p class="description">Write short product description</p>';
+		echo '<input type="text" name="product_sidebar_name" value ="'.Read_Table_Data::display_table_pps_values().'" placeholder="Description" />
+
+					<p class="description">Write product name</p>';
 
 	}
 
@@ -297,6 +280,7 @@ function pps_sidebar_options() {
 	echo 'Customize your Sidebar Options';
 
 }
+
 
 function pps_sidebar_profile() {
 	$picture = esc_attr( get_option( 'profile_picture' ) );
