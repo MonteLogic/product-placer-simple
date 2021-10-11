@@ -52,7 +52,6 @@ class Product_Placer_Simple_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		$this->load_dependencies();
 
 	}
 
@@ -68,13 +67,6 @@ class Product_Placer_Simple_Admin {
 	 */
 
 
-	private function load_dependencies() {
-
-		include plugin_dir_path( dirname( __FILE__ ) ) . 'admin/database/read-table-data.php';
-
-
-
-	}
 
 	/**
 	 * Register the stylesheets for the admin area.
@@ -247,50 +239,7 @@ class Product_Placer_Simple_Admin {
 
 
 
-function product_sidebar_name() {
-	// '.Read_Table_Data::display_table_pps_values().'
-
-	
-	echo_some_value();
-
-	if(!empty(Read_Table_Data::display_table_pps_values())){
-		echo '<input type="text" name="product_sidebar_name" value ="'.Read_Table_Data::display_table_pps_values().'" placeholder="Description" />
-
-					<p class="description">Write product name</p>';
-
-	}
-
-
-	if(empty(Read_Table_Data::display_table_pps_values())){
-
-	$picture = esc_attr( get_option( 'profile_picture' ) );
-	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
-		}
 
 
 
-}
 
-
-
-function pps_sidebar_options() {
-	echo 'Customize your Sidebar Options';
-
-}
-
-
-function pps_sidebar_profile() {
-	$picture = esc_attr( get_option( 'profile_picture' ) );
-	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
-
-}
-
-
-
-function pps_sidebar_description() {
-	$description = esc_attr( get_option( 'user_description' ) );
-	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
-			<p class="description">Write short product description</p>';
-}
