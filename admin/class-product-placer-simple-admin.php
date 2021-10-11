@@ -145,11 +145,29 @@ class Product_Placer_Simple_Admin {
 		
 		}
 
+
+
+	/**
+	 *	- This creates the preview on the admin side, however, it is tied to the 
+	 *		callback which creates the main page? 
+	 * 
+	 *
+	 * @since    0.8
+	 */
+	
+
 	public function ppssettingscallbacks(){
-		//return views
+		
 		require_once 'partials/ppssettingscallbacks.php';
 
-		}
+	}
+
+
+	/**
+	 * Creates the page Second Page, which is a subpage.
+	 *
+	 * @since    0.8
+	 */
 	
 	public function SubPagePPS_function(){
 

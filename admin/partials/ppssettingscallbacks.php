@@ -3,7 +3,8 @@
 /**
  * Provide a admin area view for the plugin
  *
- * This file is used to markup the admin-facing aspects of the plugin.
+ * This should technically be where the first page of the plugin logic is, so I should move hunderds of 
+ * lines of code from 'admin\class-product-placer-simple-admin.php' to here. 
  *
  * @link       https://github.com/dchavours/
  * @since      1.0.0
@@ -14,6 +15,8 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+
 
 
 
@@ -57,12 +60,6 @@
 
 
 
-    // This imports the alecadd settings. 
-    // settings_fields( 'sunset-settings-group');
-    // // settings_fields( $option_group:string )
-    // do_settings_sections( 'alecaddd_sunset' );
-    // // do_settings_sections( $page:string )
-    
     ?>
 
     <?php submit_button(); ?>
