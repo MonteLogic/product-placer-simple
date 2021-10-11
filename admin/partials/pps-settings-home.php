@@ -77,9 +77,8 @@ function pps_sidebar_profile() {
     if(empty($imgURLValueFromDB)){
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 
-    
-	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$imgURLValueFromDB.'" />';
+    echo '<button type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
+ 
     }
 
 
@@ -87,12 +86,8 @@ function pps_sidebar_profile() {
 
     if(!empty($imgURLValueFromDB)){
 
+        echo '<button type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>';
 
-
-        ?>
-        have this be where if a value is already in there it asks the user to replace the product picture.
-
-        <?php
                         
     }
             
