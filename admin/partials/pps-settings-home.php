@@ -76,6 +76,8 @@ function pps_sidebar_profile() {
 
     if(empty($imgURLValueFromDB)){
 	$picture = esc_attr( get_option( 'profile_picture' ) );
+
+    
 	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
 			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$imgURLValueFromDB.'" />';
     }
@@ -88,7 +90,7 @@ function pps_sidebar_profile() {
 
 
         ?>
-            <img src="<?php echo $imgURLValueFromDB; ?>" alt="" width="500" height="600">
+        have this be where if a value is already in there it asks the user to replace the product picture.
 
         <?php
                         
@@ -151,10 +153,8 @@ function product_sidebar_name() {
 <?php 
 	
 	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
-	$productName = esc_attr( get_option( 'product_name' ) );
-	$lastName = esc_attr( get_option( 'last_name' ) );
-	$fullName = $productName;
-	$description = esc_attr( get_option( 'user_description' ) );
+	$productName = Read_Table_Data::display_table_pps_values()->name;
+	$description = Read_Table_Data::display_table_pps_values()->text;
 	
 ?>
 
@@ -164,7 +164,7 @@ function product_sidebar_name() {
             <div id="profile-picture-preview" class="profile-picture"
                 style="background-image: url(<?php print $picture; ?>);"></div>
         </div>
-        <h1 class="pps-username"><?php print $fullName; ?></h1>
+        <h1 class="pps-username"><?php print $productName; ?></h1>
         <h2 class="pps-description"><?php print $description; ?></h2>
         <div class="icons-wrapper">
 

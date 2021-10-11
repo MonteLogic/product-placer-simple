@@ -30,3 +30,11 @@ I would like to queue the data from the database in a form of an array so that I
 be located in admin/database/read-table-data.php
 
 
+Note, the user cannot update the value by submitting a form as the prior get_option updating value 
+is what is currently being used as of writing this. 
+
+
+
+Work on integrating this into the project:
+https://gist.github.com/dchavours/95aa969774ece2395417997e8ed2a0ba
+
