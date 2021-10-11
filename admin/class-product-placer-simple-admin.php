@@ -179,10 +179,6 @@ class Product_Placer_Simple_Admin {
 
 
 
-
-
-
-
 /**
  * 
  * Register custom fields for product settings.
@@ -245,14 +241,17 @@ class Product_Placer_Simple_Admin {
 
 
 
-	 
+	 // The Product_Placer_Simple_Admin class ends here
 }
 	
 
 
-// Redundant in Plugin #1
+
 function product_sidebar_name() {
 	// '.Read_Table_Data::display_table_pps_values().'
+
+	
+	echo_some_value();
 
 	if(!empty(Read_Table_Data::display_table_pps_values())){
 		echo '<input type="text" name="product_sidebar_name" value ="'.Read_Table_Data::display_table_pps_values().'" placeholder="Description" />

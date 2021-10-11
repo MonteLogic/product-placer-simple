@@ -18,7 +18,25 @@
 
 
 
+<?php
 
+
+function echo_some_value(){
+
+    echo 'value9499';
+}
+
+
+/**
+ * I feel like the majority of html code from class-product-placer-simple-admin should go into here.
+ * I just go to figure out how to make it happen.
+ * 
+ * 
+ */
+
+
+
+?>
 
 <h1>PPS Options</h1>
 <?php settings_errors(); ?>
