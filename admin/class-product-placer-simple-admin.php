@@ -133,7 +133,7 @@ class Product_Placer_Simple_Admin {
 	 */
 	public function my_admin_menu() {
 
-		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'ppssettingshome') , 'dashicons-info', 250  );
+		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'pps_settings_home') , 'dashicons-info', 250  );
 
 		// add_menu_page( $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $icon_url:string, $position:integer|null )
 		// add_submenu_page( $parent_slug:string, $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $position:integer|null )
@@ -148,17 +148,17 @@ class Product_Placer_Simple_Admin {
 
 
 	/**
-	 *	- This creates the preview on the admin side, however, it is tied to the 
-	 *		callback which creates the main page.
+	 *	- This creates the preview of the avatar which will go on the widget. Most of the logic that goes on the home page should be put
+	 * 		in the pps-settings-home.php file.
 	 * 
 	 *
 	 * @since    0.8
 	 */
 	
 
-	public function ppssettingshome(){
+	public function pps_settings_home(){
 		
-		require_once 'partials/ppssettingshome.php';
+		require_once 'partials/pps-settings-home.php';
 
 	}
 
