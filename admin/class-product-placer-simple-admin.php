@@ -133,7 +133,7 @@ class Product_Placer_Simple_Admin {
 	 */
 	public function my_admin_menu() {
 
-		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'ppssettingscallbacks') , 'dashicons-info', 250  );
+		add_menu_page( 'PPS General Settings', 'PPS Settings', 'manage_options', 'ParentPagePPS', array( $this , 'ppssettingshome') , 'dashicons-info', 250  );
 
 		// add_menu_page( $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $icon_url:string, $position:integer|null )
 		// add_submenu_page( $parent_slug:string, $page_title:string, $menu_title:string, $capability:string, $menu_slug:string, $function:callable, $position:integer|null )
@@ -156,9 +156,9 @@ class Product_Placer_Simple_Admin {
 	 */
 	
 
-	public function ppssettingscallbacks(){
+	public function ppssettingshome(){
 		
-		require_once 'partials/ppssettingscallbacks.php';
+		require_once 'partials/ppssettingshome.php';
 
 	}
 
@@ -235,7 +235,6 @@ class Product_Placer_Simple_Admin {
 	// Dropdown field function
 	//add_settings_field( 'dropdown-function', 'Link To Internal Product', 'show_drop_down', 'ParentPagePPS', 'pps-sidebar-options');	
 
-	
 		}
 
 
