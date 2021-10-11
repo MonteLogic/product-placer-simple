@@ -15,12 +15,6 @@ class Read_Table_Data{
 
 		$valueForView = $result->name;
 
-		if (!empty($valueForView)){
-
-		echo $result->name;
-
-	}
-
 		return $valueForView;
 		
 		}

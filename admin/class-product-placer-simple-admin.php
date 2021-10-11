@@ -149,7 +149,7 @@ class Product_Placer_Simple_Admin {
 
 	/**
 	 *	- This creates the preview on the admin side, however, it is tied to the 
-	 *		callback which creates the main page? 
+	 *		callback which creates the main page.
 	 * 
 	 *
 	 * @since    0.8
@@ -258,9 +258,8 @@ class Product_Placer_Simple_Admin {
 
 
 
-
+	// The Product_Placer_Simple_Admin class ends here. 
 }
-
 
 
 
