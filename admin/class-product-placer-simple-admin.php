@@ -212,7 +212,6 @@ class Product_Placer_Simple_Admin {
 //	add_settings_field( $id:string,                $title:string,       $callback:callable,   $page:string,     $section:string)
 
 
-	add_settings_field( 'sidebar-profile-picture', 'Product Picture', 'pps_sidebar_profile', 'ParentPagePPS', 'pps-sidebar-options');
 	//add_settings_field( $id:string, $title:string, $callback:callable, $page:string, $section:string, $args:array )
 	add_settings_field( 'sidebar-product-name', 'Product Name', 'product_sidebar_name', 'ParentPagePPS', 'pps-sidebar-options');
 	add_settings_field( 'sidebar-description', 'Description', 'pps_sidebar_description', 'ParentPagePPS', 'pps-sidebar-options');

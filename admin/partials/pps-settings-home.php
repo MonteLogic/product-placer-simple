@@ -23,6 +23,8 @@
 
 include plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data.php';
 
+$valueFromDB = Read_Table_Data::display_table_pps_values();
+
 function echo_some_value(){
 
     echo 'value9499';
@@ -66,9 +68,32 @@ function pps_sidebar_description() {
 }
 
 function pps_sidebar_profile() {
+    // I would like to change product_picture_var to product_picture_url
+    $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
+
+
+
+
+    if(empty($imgURLValueFromDB)){
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
+			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$imgURLValueFromDB.'" />';
+    }
+
+
+
+
+    if(!empty($imgURLValueFromDB)){
+
+
+
+        ?>
+            <img src="<?php echo $imgURLValueFromDB; ?>" alt="" width="500" height="600">
+
+        <?php
+                        
+    }
+            
 
 }
 
@@ -110,16 +135,22 @@ function product_sidebar_name() {
  * 
  */
 
-
-
 ?>
+
+
+<!-- 
+    The following code is used to display the preview of what is to be show on the widget.
+
+
+-->
+
 
 <h1>PPS Options</h1>
 <?php settings_errors(); ?>
 
 <?php 
 	
-	$picture = esc_attr( get_option( 'profile_picture' ) );
+	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 	$productName = esc_attr( get_option( 'product_name' ) );
 	$lastName = esc_attr( get_option( 'last_name' ) );
 	$fullName = $productName;
