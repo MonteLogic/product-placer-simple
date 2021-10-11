@@ -13,9 +13,12 @@ class Read_Table_Data{
 		
 		$result = $wpdb->get_row( "SELECT * FROM `wp_ppsimple` ORDER BY `name` LIMIT 50 " );
 
-		$valueForView = $result->name;
+//		$valueForView = $result->name;
+		
 
-		return $valueForView;
+		// I would like to return all of this as an array and then iterate  over it. 
+
+		return $result;
 		
 		}
 

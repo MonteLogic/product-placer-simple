@@ -38,9 +38,31 @@ function pps_sidebar_options() {
 
 
 function pps_sidebar_description() {
+
+
+    $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
+	
+    if(empty($descriptionValueFromDB)){
+
 	$description = esc_attr( get_option( 'user_description' ) );
 	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
 			<p class="description">Write short product description</p>';
+ 
+        }
+
+
+    if(!empty($descriptionValueFromDB)){
+
+        echo '<input type="text" name="product_sidebar_name" value ="'.$descriptionValueFromDB.'" placeholder="Description" />
+    
+        <p class="description">Write product name</p>';
+
+    }
+
+
+
+
+
 }
 
 function pps_sidebar_profile() {
@@ -56,27 +78,29 @@ function pps_sidebar_profile() {
 function product_sidebar_name() {
 	// '.Read_Table_Data::display_table_pps_values().'
 
-
-	echo_some_value();
-
-	if(!empty(Read_Table_Data::display_table_pps_values())){
-		echo '<input type="text" name="product_sidebar_name" value ="'.Read_Table_Data::display_table_pps_values().'" placeholder="Description" />
-
-					<p class="description">Write product name</p>';
-
-	}
+    $nameValueFromDB = Read_Table_Data::display_table_pps_values()->name;
 
 
-	if(empty(Read_Table_Data::display_table_pps_values())){
+	if(empty($nameValueFromDB)){
 
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" />';
+			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$nameValueFromDB.'" />';
 		}
 
-
+    if(!empty($nameValueFromDB)){
+            echo '<input type="text" name="product_sidebar_name" value ="'.$nameValueFromDB.'" placeholder="Description" />
+    
+                        <p class="description">Write product name</p>';
+                    
+        }
+    
 
 }
+
+
+
+
 
 
 /**

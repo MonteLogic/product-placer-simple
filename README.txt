@@ -23,3 +23,10 @@ If a user deletes the plugin and still ops for the theme it will be fine because
 But the extra logic is going to be stored in the custom table. 
 
 Made a gist for this. 
+
+
+
+I would like to queue the data from the database in a form of an array so that I only have to read it once. This function for queueing would 
+be located in admin/database/read-table-data.php
+
+
