@@ -35,6 +35,10 @@ is what is currently being used as of writing this.
 
 
 
-Work on integrating this into the project:
-https://gist.github.com/dchavours/95aa969774ece2395417997e8ed2a0ba
 
+
+
+
+Integrate this into the widgets.php
+
+https://gist.github.com/dchavours/99b8999a69fd920a8b38b34da20a5e30

@@ -8,7 +8,8 @@
 
  // If class my_widget exists 
 
- 
+ include plugin_dir_path( dirname( __FILE__ ) ) .  'admin\database\read-table-data.php';
+
 
 class PPS_Widget_Plugin extends WP_Widget {
  
@@ -42,6 +43,8 @@ class PPS_Widget_Plugin extends WP_Widget {
  
         echo '<div class="textwidget">';
  
+        echo Read_Table_Data::display_table_pps_values()->text;
+
         echo esc_html__( $instance['text'], 'text_domain' );
  
         echo '</div>';
@@ -51,9 +54,14 @@ class PPS_Widget_Plugin extends WP_Widget {
     }
  
     public function form( $instance ) {
+
  
         $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'text_domain' );
-        $text = ! empty( $instance['text'] ) ? $instance['text'] : esc_html__( '', 'text_domain' );
+
+
+//        $text = ! empty( $instance['text'] ) ? $instance['text'] : esc_html__( '', 'text_domain' );
+
+        $text = Read_Table_Data::display_table_pps_values()->text;
         ?>
         <p>
         <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html__( 'Title:', 'text_domain' ); ?></label>
