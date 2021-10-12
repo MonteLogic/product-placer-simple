@@ -47,9 +47,14 @@ function pps_sidebar_description() {
     if(empty($descriptionValueFromDB)){
 
 	$description = esc_attr( get_option( 'user_description' ) );
-	echo '<input type="text" name="user_description" value="'.$description.'" placeholder="Description" />
-			<p class="description">Write short product description</p>';
  
+            ?>
+            <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
+            <p class="description">Write product name</p>
+                
+    <?php
+    
+
         }
 
 
@@ -57,12 +62,9 @@ function pps_sidebar_description() {
 
 
         ?>
-        <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?>
-        
-        </textarea>
+        <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?></textarea>
         <p class="description">Write product name</p>
         
-
 <?php
 
     }
