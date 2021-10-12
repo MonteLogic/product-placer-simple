@@ -42,3 +42,6 @@ is what is currently being used as of writing this.
 Integrate this into the widgets.php
 
 https://gist.github.com/dchavours/99b8999a69fd920a8b38b34da20a5e30
+
+
+Because I don't quite see a gap in the market, I think I am going to open source this project. 
