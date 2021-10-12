@@ -55,9 +55,15 @@ function pps_sidebar_description() {
 
     if(!empty($descriptionValueFromDB)){
 
-        echo '<input type="text" name="product_sidebar_name" value ="'.$descriptionValueFromDB.'" placeholder="Description" />
-    
-        <p class="description">Write product name</p>';
+
+        ?>
+        <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?>
+        
+        </textarea>
+        <p class="description">Write product name</p>
+        
+
+<?php
 
     }
 
@@ -77,7 +83,7 @@ function pps_sidebar_profile() {
     if(empty($imgURLValueFromDB)){
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 
-    echo '<button type="button" class="button button-secondary" value="Upload Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
+    echo '<button type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
  
     }
 
@@ -86,7 +92,7 @@ function pps_sidebar_profile() {
 
     if(!empty($imgURLValueFromDB)){
 
-        echo '<button type="button" class="button button-secondary" value="Replace Profile Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>';
+        echo '<button type="button" class="button button-secondary" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>';
 
                         
     }
