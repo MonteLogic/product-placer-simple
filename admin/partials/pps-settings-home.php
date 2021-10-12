@@ -21,7 +21,7 @@
 <?php
 
 
-include plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data.php';
+include_once plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data.php';
 
 $valueFromDB = Read_Table_Data::display_table_pps_values();
 

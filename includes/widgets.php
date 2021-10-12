@@ -8,7 +8,7 @@
 
  // If class my_widget exists 
 
- include plugin_dir_path( dirname( __FILE__ ) ) .  'admin\database\read-table-data.php';
+include_once plugin_dir_path( dirname( __FILE__ ) ) .  'admin\database\read-table-data.php';
 
 
 class PPS_Widget_Plugin extends WP_Widget {
@@ -43,7 +43,7 @@ class PPS_Widget_Plugin extends WP_Widget {
  
         echo '<div class="textwidget">';
  
-        echo Read_Table_Data::display_table_pps_values()->text;
+       echo Read_Table_Data::display_table_pps_values()->text;
 
         echo esc_html__( $instance['text'], 'text_domain' );
  
@@ -56,22 +56,8 @@ class PPS_Widget_Plugin extends WP_Widget {
     public function form( $instance ) {
 
  
-        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( '', 'text_domain' );
+		echo '<p><strong>No options for this Widget!</strong><br/>You can control the fields of this Widget from <a href="./admin.php?page=ParentPagePPS">This Page</a></p>';
 
-
-//        $text = ! empty( $instance['text'] ) ? $instance['text'] : esc_html__( '', 'text_domain' );
-
-        $text = Read_Table_Data::display_table_pps_values()->text;
-        ?>
-        <p>
-        <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php echo esc_html__( 'Title:', 'text_domain' ); ?></label>
-            <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-        </p>
-        <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'Text' ) ); ?>"><?php echo esc_html__( 'Text:', 'text_domain' ); ?></label>
-            <textarea class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" cols="30" rows="10"><?php echo esc_attr( $text ); ?></textarea>
-        </p>
-        <?php
  
     }
  
