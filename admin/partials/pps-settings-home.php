@@ -115,11 +115,11 @@ function product_sidebar_name() {
 
 	$picture = esc_attr( get_option( 'profile_picture' ) );
 	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" name="profile_picture" value="'.$nameValueFromDB.'" />';
+			<input type="hidden" id="profile-picture" value="'.$nameValueFromDB.'" />';
 		}
 
     if(!empty($nameValueFromDB)){
-            echo '<input type="text" name="product_sidebar_name" value ="'.$nameValueFromDB.'" placeholder="Description" />
+            echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
     
                         <p class="description">Write product name</p>';
                     
@@ -130,6 +130,22 @@ function product_sidebar_name() {
 
 
 
+function link_button_text() {
+	// '.Read_Table_Data::display_table_pps_values().'
+
+    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+
+// ToDo: Make logic for if the value isn't there.
+
+    if(!empty($linkButtonTextFromDB)){
+            echo '<input type="text" value ="'.$linkButtonTextFromDB.'" placeholder="" />
+    
+                        <p class="description">Write the text that will appear on button.</p>';
+                    
+        }
+    
+
+}
 
 
 
