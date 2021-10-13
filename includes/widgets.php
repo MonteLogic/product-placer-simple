@@ -32,14 +32,45 @@ class PPS_Widget_Plugin extends WP_Widget {
         'before_widget' => '<div class="widget-wrap">',
         'after_widget'  => '</div></div>'
     );
+
+
+    // front-end display of widget
  
-    public function widget( $args, $instance ) {
- 
+    
+     public function widget( $args, $instance ) {
+
+
+
         echo $args['before_widget'];
+        // This is the start of the div. 
+        echo '<div class ="wrapping-class-ca" style="padding: 11px;">';
+
  
         if ( ! empty( $instance['title'] ) ) {
             echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
         }
+
+        $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
+        $linkURLExternal = Read_Table_Data::display_table_pps_values()->link_url;
+
+
+
+
+
+        // This checks if the image url has been inputted.
+        if ( ! empty( $linkURLExternal ) ){
+            // This displays the image by putting it in the source tag.
+        ?>
+
+        <a href="<?php echo $linkURLExternal; ?>">
+            <img src="<?php echo esc_url(   $imgURLValueFromDB ); ?>" alt="" width="500" height="600">
+        </a>
+
+        <?php
+
+        }
+
+
  
         echo '<div class="textwidget">';
  
@@ -50,15 +81,14 @@ class PPS_Widget_Plugin extends WP_Widget {
         echo '</div>';
  
         echo $args['after_widget'];
- 
+
+        echo '</div>';
     }
  
     public function form( $instance ) {
-
  
 		echo '<p><strong>No options for this Widget!</strong><br/>You can control the fields of this Widget from <a href="./admin.php?page=ParentPagePPS">This Page</a></p>';
 
- 
     }
  
     public function update( $new_instance, $old_instance ) {
@@ -70,10 +100,16 @@ class PPS_Widget_Plugin extends WP_Widget {
  
         return $instance;
     }
- 
+
 }
 
 
 
 $my_widget = new PPS_Widget_Plugin();
+
+
 ?>
+
+
+
+
