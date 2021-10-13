@@ -39,20 +39,23 @@ class PPS_Widget_Plugin extends WP_Widget {
     
      public function widget( $args, $instance ) {
 
+        $productTitle = Read_Table_Data::display_table_pps_values()->name;
+        $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
+        $linkURLExternal = Read_Table_Data::display_table_pps_values()->link_url;
+        $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
+        $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+        $description = Read_Table_Data::display_table_pps_values()->text;
 
 
         echo $args['before_widget'];
         // This is the start of the div. 
         echo '<div class ="wrapping-class-ca" style="padding: 11px;">';
 
+
  
-        if ( ! empty( $instance['title'] ) ) {
-            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+        if ( ! empty( $productTitle  ) ) {
+            echo $productTitle;
         }
-
-        $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
-        $linkURLExternal = Read_Table_Data::display_table_pps_values()->link_url;
-
 
 
 
@@ -74,7 +77,7 @@ class PPS_Widget_Plugin extends WP_Widget {
  
         echo '<div class="textwidget">';
  
-       echo Read_Table_Data::display_table_pps_values()->text;
+        echo Read_Table_Data::display_table_pps_values()->text;
 
         echo esc_html__( $instance['text'], 'text_domain' );
  

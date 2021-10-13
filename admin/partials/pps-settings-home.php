@@ -99,9 +99,6 @@ function pps_sidebar_description() {
     }
 
 
-
-
-
 }
 
 function pps_sidebar_profile() {
@@ -131,6 +128,27 @@ function pps_sidebar_profile() {
 
 }
 
+function pps_star_rating() {
+
+    $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
+
+	if(empty($starRating)){
+
+	echo 'You have not added this value to the database.';
+
+    }
+
+    if(!empty($starRating)){
+            echo '<input type="text"  value ="'.$starRating.'" placeholder="Description" />
+    
+                        <p class="description">Write product name</p>';
+                    
+    }
+
+
+
+
+}
 
 
 
@@ -142,16 +160,16 @@ function product_sidebar_name() {
 
 	if(empty($nameValueFromDB)){
 
-	$picture = esc_attr( get_option( 'profile_picture' ) );
 	echo 'You have not added this value to the database.';
-		}
+
+    }
 
     if(!empty($nameValueFromDB)){
             echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
     
                         <p class="description">Write product name</p>';
                     
-        }
+    }
     
 
 }
@@ -161,6 +179,7 @@ function product_sidebar_name() {
 function link_button_text() {
 	// '.Read_Table_Data::display_table_pps_values().'
 
+    // I want these reading of database values to be together line upon line.
     $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
 
 // ToDo: Make logic for if the value isn't there.

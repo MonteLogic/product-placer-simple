@@ -217,7 +217,8 @@ class Product_Placer_Simple_Admin {
 	add_settings_field( 'sidebar-description', 'Description', 'pps_sidebar_description', 'ParentPagePPS', 'pps-sidebar-options');
 	add_settings_field( 'link-button-text', 'Button Text', 'link_button_text', 'ParentPagePPS', 'pps-sidebar-options');
 	add_settings_field( 'link-product-url', 'Link Product', 'pps_product_url', 'ParentPagePPS', 'pps-sidebar-options');
-	
+	add_settings_field( 'pps-star-rating', 'Star Rating', 'pps_star_rating', 'ParentPagePPS', 'pps-sidebar-options');
+
 	//Todo: import the logic from mho into the function.
 	//add_settings_field( 'external-link', 'Link To External Product', 'link_external_product', 'ParentPagePPS', 'pps-sidebar-options');
 
