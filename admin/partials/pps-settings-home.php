@@ -38,6 +38,35 @@ function pps_sidebar_options() {
 }
 
 
+function pps_product_url(){
+
+
+    // The variable below this, could have naming conflicts.
+    $linkProductUrl = Read_Table_Data::display_table_pps_values()->link_url;
+
+    if(empty($linkProductUrl )){
+
+        echo 'You have not added this value to the database.';
+
+    
+            }
+    
+    
+        if(!empty($linkProductUrl )){
+    
+    
+            echo '<input type="text"  value ="'.$linkProductUrl.'" placeholder="Description" />
+            
+            <p class="description">Includ link to your product.</p>';
+    
+        }
+    
+    
+    
+
+
+}
+
 
 function pps_sidebar_description() {
 
@@ -52,7 +81,7 @@ function pps_sidebar_description() {
             <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
             <p class="description">Write product name</p>
                 
-    <?php
+            <?php
     
 
         }
@@ -65,7 +94,7 @@ function pps_sidebar_description() {
         <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?></textarea>
         <p class="description">Write product name</p>
         
-<?php
+        <?php
 
     }
 
@@ -83,8 +112,8 @@ function pps_sidebar_profile() {
 
 
     if(empty($imgURLValueFromDB)){
-	$picture = esc_attr( get_option( 'profile_picture' ) );
 
+        // Keep this line because it has good button showing logic.
     echo '<button type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
  
     }
@@ -114,8 +143,7 @@ function product_sidebar_name() {
 	if(empty($nameValueFromDB)){
 
 	$picture = esc_attr( get_option( 'profile_picture' ) );
-	echo '<input type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button">
-			<input type="hidden" id="profile-picture" value="'.$nameValueFromDB.'" />';
+	echo 'You have not added this value to the database.';
 		}
 
     if(!empty($nameValueFromDB)){
