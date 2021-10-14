@@ -87,11 +87,13 @@ class Product_Placer_Simple_Admin {
 		 * class.
 		 */
 
+		
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/product-placer-simple-admin.css', array(), $this->version, 'all' );
 
 		// bootstrap to the admin side.
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/main.css', array(), $this->version, 'all' );
-	
+
+
 
 	}
 

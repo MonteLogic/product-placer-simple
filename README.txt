@@ -45,3 +45,10 @@ https://gist.github.com/dchavours/99b8999a69fd920a8b38b34da20a5e30
 
 
 Because I don't quite see a gap in the market, I think I am going to open source this project. 
+
+Current milestone 001d -
+I have to make all of the fields be able to be updated and also have to style the widget. 
+
+After that work on payment gate, then work on the fact that users can make more than one product. But focus on one single 
+product for now and get that perfect before expanding. 
+

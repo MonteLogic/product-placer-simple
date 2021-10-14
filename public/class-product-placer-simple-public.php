@@ -78,6 +78,9 @@ class Product_Placer_Simple_Public {
 		// Adding bootstrap to the public facing website.
         wp_enqueue_style( 'bootstrap.min', plugin_dir_url( __FILE__ ) . 'css/bootstrap.min.css', array(), $this->version, 'all' );
 
+		// dashicons for star widget. Note dashicons seem to be natively built into wp-includes. 
+		wp_enqueue_style( 'dashicons' );
+
 	}
 
 	/**

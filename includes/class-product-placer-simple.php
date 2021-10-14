@@ -129,6 +129,14 @@ class Product_Placer_Simple {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/widgets.php';
 
 
+		/**
+		 * Dependency needed for showing stars on the front end of the widget.
+		 */
+
+		require_once( ABSPATH . 'wp-admin/includes/template.php' );
+
+
+
 		$this->loader = new Product_Placer_Simple_Loader();
 
 	}

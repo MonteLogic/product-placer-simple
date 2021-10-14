@@ -45,7 +45,7 @@ class PPS_Widget_Plugin extends WP_Widget {
         $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
         $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
         $description = Read_Table_Data::display_table_pps_values()->text;
-
+        $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
 
         echo $args['before_widget'];
         // This is the start of the div. 
@@ -80,7 +80,24 @@ class PPS_Widget_Plugin extends WP_Widget {
         echo Read_Table_Data::display_table_pps_values()->text;
 
         echo esc_html__( $instance['text'], 'text_domain' );
+        echo '<div class="star-rating-wrap" style="padding-top: 12px; padding-bottom: 5px;">';
+        
+        if ( ! empty( $starRating ) ) {
+
+
+                $args = array(
+                    'rating' => $starRating,
+                    'type' => 'rating',
+                    'number' => '',
+                 );
+                 wp_star_rating( $args ); 
  
+        }
+
+        echo '</div>';
+
+
+
         echo '</div>';
  
         echo $args['after_widget'];
