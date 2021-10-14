@@ -205,14 +205,11 @@ function link_button_text() {
 
 ?>
 
-
 <!-- 
     The following code is used to display the preview of what is to be show on the widget.
 
 
 -->
-
-
 <h1>PPS Options</h1>
 <?php settings_errors(); ?>
 

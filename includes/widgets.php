@@ -139,7 +139,3 @@ $my_widget = new PPS_Widget_Plugin();
 
 
 ?>
-
-
-
-
