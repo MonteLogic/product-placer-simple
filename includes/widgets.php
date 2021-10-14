@@ -41,7 +41,7 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         $productTitle = Read_Table_Data::display_table_pps_values()->name;
         $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
-        $linkURLExternal = Read_Table_Data::display_table_pps_values()->link_url;
+        $linkURLForProduct = Read_Table_Data::display_table_pps_values()->link_url;
         $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
         $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
         $description = Read_Table_Data::display_table_pps_values()->text;
@@ -61,11 +61,11 @@ class PPS_Widget_Plugin extends WP_Widget {
 
 
         // This checks if the image url has been inputted.
-        if ( ! empty( $linkURLExternal ) ){
+        if ( ! empty( $linkURLForProduct ) ){
             // This displays the image by putting it in the source tag.
         ?>
 
-        <a href="<?php echo $linkURLExternal; ?>">
+        <a href="<?php echo $linkURLForProduct; ?>">
             <img src="<?php echo esc_url(   $imgURLValueFromDB ); ?>" alt="" width="500" height="600">
         </a>
 
@@ -96,7 +96,17 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         echo '</div>';
 
+        // This beings the widget button logic.
 
+        if( !empty($linkURLForProduct ) ): ?>
+
+            <div class="text-center">
+                <a href="<?php echo $linkURLForProduct; ?>" style="color: #fff" id="widget-button-ca"
+                    class="btn btn-primary float-right"><?php echo $linkButtonTextFromDB; ?> </a>
+            </div>
+
+            <?php 
+            endif; 
 
         echo '</div>';
  
