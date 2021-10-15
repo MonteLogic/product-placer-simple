@@ -34,6 +34,7 @@ Note, the user cannot update the value by submitting a form as the prior get_opt
 is what is currently being used as of writing this. 
 
 
+Because I don't quite see a gap in the market, I think I am going to open source this project. 
 
 
 
@@ -44,7 +45,10 @@ Integrate this into the widgets.php
 https://gist.github.com/dchavours/99b8999a69fd920a8b38b34da20a5e30
 
 
-Because I don't quite see a gap in the market, I think I am going to open source this project. 
+
+I would like to have the admin side mirror the what the front side is going to look like, I need to add star and buy now logic to this.
+
+
 
 Current milestone 001d -
 I have to make all of the fields be able to be updated and also have to style the widget. 
