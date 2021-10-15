@@ -55,5 +55,4 @@ product for now and get that perfect before expanding.
 
 
 Right now: 
-Adding buy now button to front side
-
+Making fields changable through the admin side.
