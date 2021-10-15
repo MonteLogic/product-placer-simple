@@ -9,10 +9,11 @@ class Create_Table {
 
 	// The function was used from another source outside of this project.
 	
+	// I should have something that looks like Create_Table::jal_install();
 
 
 
-	function jal_install() {
+public static	function jal_install() {
 		global $wpdb;
 		$jal_db_version = '1.0';
 	
