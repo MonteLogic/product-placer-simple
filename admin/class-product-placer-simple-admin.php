@@ -197,10 +197,10 @@ class Product_Placer_Simple_Admin {
 					//registers all settings for general settings page
 		register_setting( 'pps-settings-group', 'profile_picture' );
 		//register_setting( $option_group:string, $option_name:string, $args:array )
-
-
-		register_setting( 'pps-settings-group', 'last_name' );
-		register_setting( 'pps-settings-group', 'user_description' );
+		
+		//change this
+		register_setting( 'pps-settings-group', 'product_name' );
+		register_setting( 'pps-settings-group', 'product_description' );
 		register_setting( 'pps-settings-group', 'twitter_handler', 'pps_sanitize_twitter_handler' );
 		register_setting( 'pps-settings-group', 'facebook_handler' );
 		register_setting( 'pps-settings-group', 'selected_page' );

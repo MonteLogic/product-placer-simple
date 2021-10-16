@@ -72,13 +72,13 @@ function pps_sidebar_description() {
 
 
     $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
+
+    $description = esc_attr( get_option( 'product_description' ) );
 	
     if(empty($descriptionValueFromDB)){
-
-	$description = esc_attr( get_option( 'user_description' ) );
  
             ?>
-            <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
+            <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
             <p class="description">Write product name</p>
                 
             <?php
@@ -86,15 +86,30 @@ function pps_sidebar_description() {
 
         }
 
-
     if(!empty($descriptionValueFromDB)){
 
+        // So both statements are true $descriptionValueFromDB and $description are not empty. I want to spit out $description.
 
+        if(empty($description)){
+        // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
         ?>
-        <textarea name="product_sidebar_name" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?></textarea>
-        <p class="description">Write product name</p>
+        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?></textarea>
+        <p class="description">Write description of product.</p>
         
         <?php
+        return 0;
+        }
+
+        if(!empty($description)){
+        // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
+        ?>
+        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
+        <p class="description">Write description of product.</p>
+        
+        <?php
+        }
+        
+
 
     }
 
