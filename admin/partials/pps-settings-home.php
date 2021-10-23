@@ -38,72 +38,42 @@ function pps_sidebar_options() {
 }
 
 
-function pps_product_url(){
-
-
-    // The variable below this, could have naming conflicts.
-    $linkProductUrl = Read_Table_Data::display_table_pps_values()->link_url;
-
-    if(empty($linkProductUrl )){
-
-        echo 'You have not added this value to the database.';
-
-    
-            }
-    
-    
-        if(!empty($linkProductUrl )){
-    
-    
-            echo '<input type="text"  value ="'.$linkProductUrl.'" placeholder="Description" />
-            
-            <p class="description">Includ link to your product.</p>';
-    
-        }
-    
-    
-    
-
-
-}
-
 
 function pps_sidebar_description() {
 
 
-    $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
+    $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
 
-    $description = esc_attr( get_option( 'product_description' ) );
+    $descriptionWpo = esc_attr( get_option( 'product_description' ) );
 	
-    if(empty($descriptionValueFromDB)){
+    if(empty($descriptionValueFromCA)){
  
             ?>
-            <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
+            <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionWpo?></textarea>
             <p class="description">Write product name</p>
-                
             <?php
-    
+
 
         }
 
-    if(!empty($descriptionValueFromDB)){
+    if(!empty($descriptionValueFromCA)){
 
-        // So both statements are true $descriptionValueFromDB and $description are not empty. I want to spit out $description.
+        // So both statements are true $descriptionValueFromCA and Wpo are not empty. I want to spit out $descriptionWpo.
 
-        if(empty($description)){
+        if(empty($descriptionWpo)){
         // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
         ?>
-        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromDB?></textarea>
+        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromCA?></textarea>
         <p class="description">Write description of product.</p>
         
         <?php
         return 0;
         }
 
-        if(!empty($description)){
+        if(!empty($descriptionWpo)){
         // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
         ?>
-        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $description?></textarea>
+        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionWpo?></textarea>
         <p class="description">Write description of product.</p>
         
         <?php
@@ -115,6 +85,72 @@ function pps_sidebar_description() {
 
 
 }
+
+
+function pps_product_url(){
+
+
+    // The variable below this, could have naming conflicts.
+    $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
+
+    // This field isn't automatically created in the database unless the save changes
+    // button is interacted with.
+
+    $ProductPageLinkWpo = esc_attr( get_option( 'product_page_link' ) );
+
+    if(empty($linkProductUrlFromCA )){
+
+        ?>
+        <input type="text" name="product_page_link"  value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />
+        <p class="description">Include link to your product.</p>
+        <?php
+
+        }
+    
+    
+    
+    if(!empty($linkProductUrlFromCA )){
+
+
+            if(empty($ProductPageLinkWpo)){
+
+                ?>
+
+                <input type="text"  value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />
+                            
+                <p class="description">Include link to your product.</p>
+
+                <?php
+
+
+
+            }
+    
+            if(!empty($ProductPageLinkWpo)){
+
+                ?>
+                
+                <?php
+
+
+            }
+    
+
+            // echo '<input type="text"  value ="'.$linkProductUrlFromCA.'" placeholder="Description" />
+            
+            // <p class="description">Include link to your product.</p>';
+    
+        }
+    
+    
+    
+
+
+}
+
+
+
+
 
 function pps_sidebar_profile() {
     // I would like to change product_picture_var to product_picture_url
@@ -129,6 +165,10 @@ function pps_sidebar_profile() {
     echo '<button type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
  
     }
+
+
+
+
 
 
 
@@ -183,7 +223,7 @@ function product_sidebar_name() {
             echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
     
                         <p class="description">Write product name</p>';
-                    
+
     }
     
 
@@ -229,11 +269,11 @@ function link_button_text() {
 <?php settings_errors(); ?>
 
 <?php 
-	
+
 	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 	$productName = Read_Table_Data::display_table_pps_values()->name;
-	$description = Read_Table_Data::display_table_pps_values()->text;
-	
+	$descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
+
 ?>
 
 <div class="pps-sidebar-preview">
@@ -243,7 +283,7 @@ function link_button_text() {
                 style="background-image: url(<?php print $picture; ?>);"></div>
         </div>
         <h1 class="pps-username"><?php print $productName; ?></h1>
-        <h2 class="pps-description"><?php print $description; ?></h2>
+        <h2 class="pps-description"><?php print $descriptionWpo; ?></h2>
         <div class="icons-wrapper">
 
         </div>

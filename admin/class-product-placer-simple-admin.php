@@ -201,6 +201,8 @@ class Product_Placer_Simple_Admin {
 		//change this
 		register_setting( 'pps-settings-group', 'product_name' );
 		register_setting( 'pps-settings-group', 'product_description' );
+		register_setting( 'pps-settings-group', 'product_page_link' );
+
 		register_setting( 'pps-settings-group', 'twitter_handler', 'pps_sanitize_twitter_handler' );
 		register_setting( 'pps-settings-group', 'facebook_handler' );
 		register_setting( 'pps-settings-group', 'selected_page' );
