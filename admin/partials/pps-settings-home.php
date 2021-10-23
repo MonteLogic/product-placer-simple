@@ -79,16 +79,12 @@ function pps_sidebar_description() {
         <?php
         }
         
-
-
     }
-
 
 }
 
 
 function pps_product_url(){
-
 
     // The variable below this, could have naming conflicts.
     $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
@@ -115,21 +111,19 @@ function pps_product_url(){
             if(empty($ProductPageLinkWpo)){
 
                 ?>
-
-                <input type="text"  value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />
-                            
+                <input type="text" name="product_page_link" value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />         
                 <p class="description">Include link to your product.</p>
-
+               
                 <?php
-
-
-
+                return 0;
             }
     
             if(!empty($ProductPageLinkWpo)){
 
+
                 ?>
-                
+                <input type="text" name="product_page_link" value ="<?php echo $ProductPageLinkWpo ?> " placeholder="Enter link to your product here." />         
+                <p class="description">Include link to your product.</p>
                 <?php
 
 
