@@ -101,8 +101,7 @@ function pps_product_url(){
         <p class="description">Include link to your product.</p>
         <?php
 
-        }
-    
+    }
     
     
     if(!empty($linkProductUrlFromCA )){
@@ -126,19 +125,9 @@ function pps_product_url(){
                 <p class="description">Include link to your product.</p>
                 <?php
 
-
             }
     
-
-            // echo '<input type="text"  value ="'.$linkProductUrlFromCA.'" placeholder="Description" />
-            
-            // <p class="description">Include link to your product.</p>';
-    
         }
-    
-    
-    
-
 
 }
 
@@ -156,8 +145,12 @@ function pps_sidebar_profile() {
     if(empty($imgURLValueFromDB)){
 
         // Keep this line because it has good button showing logic.
-    echo '<button type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />';
- 
+        ?>
+
+<button type="button" class="button button-secondary" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />;
+
+        <?php
+
     }
 
 
@@ -169,7 +162,10 @@ function pps_sidebar_profile() {
 
     if(!empty($imgURLValueFromDB)){
 
-        echo '<button type="button" class="button button-secondary" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>';
+        ?>
+<button type="button" class="button button-secondary" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'.$picture.'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>;
+
+        <?php 
 
                         
     }
@@ -190,7 +186,7 @@ function pps_star_rating() {
     if(!empty($starRating)){
             echo '<input type="text"  value ="'.$starRating.'" placeholder="Description" />
     
-                        <p class="description">Write product name</p>';
+                        <p class="description">Enter rating of product from 1 to 5</p>';
                     
     }
 
@@ -245,20 +241,10 @@ function link_button_text() {
 
 
 
-/**
- * I feel like the majority of html code from class-product-placer-simple-admin should go into here.
- * I just go to figure out how to make it happen.
- * 
- * 
- */
 
 ?>
 
-<!-- 
-    The following code is used to display the preview of what is to be show on the widget.
 
-
--->
 <h1>PPS Options</h1>
 <?php settings_errors(); ?>
 
