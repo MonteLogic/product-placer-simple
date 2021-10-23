@@ -92,6 +92,8 @@ class Product_Placer_Simple_Admin {
 
 		// bootstrap to the admin side.
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/main.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'thickbox' );
+
 
 
 
@@ -117,6 +119,16 @@ class Product_Placer_Simple_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-placer-simple-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'thickbox');
+		wp_enqueue_script( 'media-upload');
+
+	}
+	public function enqueue_media() {
+
+		wp_enqueue_media();
+
+
+
 
 	}
 
