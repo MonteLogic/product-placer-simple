@@ -11,7 +11,7 @@ I'll send you to organize the do_settings to have it be linked to a valid call b
     However, this is probably for pps </p>
 </p>
 
-
+..
 
 How come when this plugin comes into existence on the Wordpress activation there isn't a supplemental table that pops up
 so we can store info in this plugin. 
