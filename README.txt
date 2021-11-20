@@ -59,4 +59,11 @@ product for now and get that perfect before expanding.
 
 
 Right now: 
-Making fields changable through the admin side.
+Making fields changable through the admin side. 
+
+
+toDo: 
+Make it so thhat the replace button actually sends logic to change the value of $picture which is: 
+'$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;'
+
+
