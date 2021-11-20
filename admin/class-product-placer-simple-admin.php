@@ -123,6 +123,7 @@ class Product_Placer_Simple_Admin {
 		wp_enqueue_script( 'media-upload');
 
 	}
+
 	public function enqueue_media() {
 
 		wp_enqueue_media();
