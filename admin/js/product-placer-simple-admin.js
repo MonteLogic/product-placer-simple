@@ -38,7 +38,7 @@
 
 			e.preventDefault();
 			// Create a new media frame.
-			aw_uploader = wp.media({
+			var aw_uploader = wp.media({
 				title: 'Custom image',
 				button: {
 					text: 'Use this image'
@@ -47,6 +47,7 @@
 			}).on('select', function() {
 				var attachment = aw_uploader.state().get('selection').first().toJSON();
 				$('#aw_custom_image').val(attachment.url);
+				console.log(attachment.url);
 			})
 			.open();
 		
