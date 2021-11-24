@@ -280,7 +280,9 @@ function link_button_text() {
 
 
     ?>
-
+    <!-- What does the submit_button() look like without the wrapper method? How would I 
+            replicate this without Wordpress? 
+        -->
     <?php submit_button(); ?>
 
 
