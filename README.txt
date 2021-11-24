@@ -25,3 +25,7 @@ Make it so thhat the replace button actually sends logic to change the value of 
 
 I just noticed that none of the values change at all after Save Changes is pressed. So I guess I have to register all of them
 with the Settings API
+
+
+
+THE DESCRIPTION VALUE IS CHANGING!!!
