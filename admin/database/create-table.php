@@ -41,6 +41,10 @@ public static	function jal_install() {
 	function jal_install_data() {
 		global $wpdb;
 		
+		// The logic should be here to move all of the files I had in the complicated table from the 
+		// theme into here. 
+		//
+
 		$welcome_name = 'Mr. WordPress';
 		$welcome_text = 'Congratulations, you just completed the installation!';
 		
