@@ -65,7 +65,7 @@ function pps_sidebar_description() {
         ?>
         <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromCA?></textarea>
         <p class="description">Write description of product.</p>
-        
+
         <?php
         return 0;
         }
