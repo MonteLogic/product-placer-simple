@@ -45,41 +45,18 @@ function pps_sidebar_description() {
     $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
 
     $descriptionWpo = esc_attr( get_option( 'product_description' ) );
+
+
+    ?>
+    <textarea name="product_description" class="widefat" 
+    cols="50" rows="5" placeholder="Description"><?php echo (!$descriptionValueFromCA ) ? $descriptionValueFromCA : $descriptionWpo ?></textarea>
+    <p class="description">Write product name</p>
+    <?php
+
 	
-    if(empty($descriptionValueFromCA)){
- 
-            ?>
-            <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionWpo?></textarea>
-            <p class="description">Write product name</p>
-            <?php
 
 
-        }
 
-    if(!empty($descriptionValueFromCA)){
-
-        // So both statements are true $descriptionValueFromCA and Wpo are not empty. I want to spit out $descriptionWpo.
-
-        if(empty($descriptionWpo)){
-        // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
-        ?>
-        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionValueFromCA?></textarea>
-        <p class="description">Write description of product.</p>
-
-        <?php
-        return 0;
-        }
-
-        if(!empty($descriptionWpo)){
-        // Stuff that's in here is stuff that was already in Commerce Abbreviated because the user was using said theme.
-        ?>
-        <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description" ><?php echo $descriptionWpo?></textarea>
-        <p class="description">Write description of product.</p>
-        
-        <?php
-        }
-        
-    }
 
 }
 
@@ -147,20 +124,27 @@ function pps_sidebar_profile() {
         // Keep this line because it has good button showing logic.
         ?>
 
-<button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="sdfgsdfg" />;
+<button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button">
+    <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button>
+    <input type="hidden" id="profile-picture" name="profile_picture" value="<?php echo $imgURLProduct ?>" />;
 
         <?php
 
     }
 
 
-
-
-
     if(!empty($imgURLValueFromDB)){
 
         ?>
-<button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="text" id="profile-picture" name="profile_picture" value="<?php echo $imgURLProduct ?>" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
+<button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button">
+        <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button>
+        
+        <input type="text" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLProduct) ? $imgURLValueFromDB : $imgURLProduct ?>" /> 
+      
+        
+        <button type="button" class="button button-secondary" value="Remove" id="remove-picture">
+            
+        <span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
 
         <?php 
 
