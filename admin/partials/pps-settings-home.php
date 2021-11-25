@@ -249,21 +249,17 @@ function link_button_text() {
 
 <?php 
 
-if (!$imgURLProduct){
+$pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
 
-//    echo $imgURLProduct == false ?  'True - imgURLProduct Exists' : 'False - ImgURLProduct';
-    //    echo $imasdfasdfasdfgURLProduct == false ?  'True - imgURLProduct Exists' : 'False - ImgURLProduct';
 
-        $value  =5;
+   
+       // echo $pictureForPreview;
 
-        $check = isset($value) && !empty($value) ?: 'default';
+        echo (!$pictureForPreview) ? "This does not exist" : $pictureForPreview;
 
-        echo $check;
 
-    // $weather = 'snowing';
-    // echo $weather == 'raining' ? 'It is raining outside' : 'It is snowing outside';
 
-}
+
 
 	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 	$productName = Read_Table_Data::display_table_pps_values()->name;
