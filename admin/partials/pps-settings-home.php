@@ -48,14 +48,10 @@ function pps_sidebar_description() {
 
 
     ?>
-    <textarea name="product_description" class="widefat" 
-    cols="50" rows="5" placeholder="Description"><?php echo (!$descriptionValueFromCA ) ? $descriptionValueFromCA : $descriptionWpo ?></textarea>
+<textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description"><?php 
+    echo (!$descriptionValueFromCA ) ? $descriptionValueFromCA : $descriptionWpo ?></textarea>
     <p class="description">Write product name</p>
     <?php
-
-	
-
-
 
 
 }
@@ -183,19 +179,29 @@ function product_sidebar_name() {
 
     $nameValueFromDB = Read_Table_Data::display_table_pps_values()->name;
 
+    $productName = esc_attr( get_option( 'product_name' ) );
 
-	if(empty($nameValueFromDB)){
-
-	echo 'You have not added this value to the database.';
-
-    }
-
-    if(!empty($nameValueFromDB)){
-            echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
     
-                        <p class="description">Write product name</p>';
+    ?>
 
-    }
+    <input type="text" name="product_name" value ="<?php echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?> " placeholder="Description" />
+    
+    <p class="description">Write product name</p>
+    
+    <?
+
+	// if(empty($nameValueFromDB)){
+
+	// echo 'You have not added this value to the database.';
+
+    // }
+
+    // if(!empty($nameValueFromDB)){
+    //         echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
+    
+    //                     <p class="description">Write product name</p>';
+
+    // }
     
 
 }
@@ -234,20 +240,13 @@ function link_button_text() {
 <?php 
 
 $pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
+$picturePrevious =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 
 
-   
-       // echo $pictureForPreview;
+$productName = Read_Table_Data::display_table_pps_values()->name;
 
 
-
-
-
-
-
-	$picturePrevious =  Read_Table_Data::display_table_pps_values()->product_picture_var;
-	$productName = Read_Table_Data::display_table_pps_values()->name;
-	$descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
+$descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
 
     echo (!$pictureForPreview) ? "This does not exist" : $pictureForPreview;
 
