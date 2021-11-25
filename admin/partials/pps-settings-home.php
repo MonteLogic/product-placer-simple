@@ -138,7 +138,7 @@ function pps_product_url(){
 function pps_sidebar_profile() {
     // I would like to change product_picture_var to product_picture_url
     $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
-
+    $imgURLProduct = esc_attr( get_option( 'profile_picture' ) );
 
 // This logic is the button for which to be replaced. 
 
@@ -147,7 +147,7 @@ function pps_sidebar_profile() {
         // Keep this line because it has good button showing logic.
         ?>
 
-<button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="" />;
+<button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="sdfgsdfg" />;
 
         <?php
 
@@ -160,7 +160,7 @@ function pps_sidebar_profile() {
     if(!empty($imgURLValueFromDB)){
 
         ?>
-<button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="hidden" id="profile-picture" name="profile_picture" value="'<?php $picture ?>'" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
+<button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button"><span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button><input type="text" id="profile-picture" name="profile_picture" value="<?php echo $imgURLProduct ?>" /> <button type="button" class="button button-secondary" value="Remove" id="remove-picture"><span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
 
         <?php 
 

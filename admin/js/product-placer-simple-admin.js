@@ -46,7 +46,7 @@
 				multiple: false
 			}).on('select', function() {
 				var attachment = aw_uploader.state().get('selection').first().toJSON();
-				$('#aw_custom_image').val(attachment.url);
+				$('#profile-picture').val(attachment.url);
 				$('#profile-picture-preview').css('background-image','url(' + attachment.url + ')')
 				console.log(attachment.url);
 			})
