@@ -181,28 +181,14 @@ function product_sidebar_name() {
 
     $productName = esc_attr( get_option( 'product_name' ) );
 
-    
     ?>
 
-    <input type="text" name="product_name" value ="<?php echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?> " placeholder="Description" />
-    
+    <input type="text" name="product_name" value ="<?php 
+        echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?>" placeholder="Description" />
+        
     <p class="description">Write product name</p>
-    
     <?
 
-	// if(empty($nameValueFromDB)){
-
-	// echo 'You have not added this value to the database.';
-
-    // }
-
-    // if(!empty($nameValueFromDB)){
-    //         echo '<input type="text"  value ="'.$nameValueFromDB.'" placeholder="Description" />
-    
-    //                     <p class="description">Write product name</p>';
-
-    // }
-    
 
 }
 
@@ -243,12 +229,14 @@ $pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
 $picturePrevious =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 
 
-$productName = Read_Table_Data::display_table_pps_values()->name;
+$productName = esc_attr( get_option( 'product_name' ) );
+$productNameCA = Read_Table_Data::display_table_pps_values()->name;
 
 
-$descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
 
-    echo (!$pictureForPreview) ? "This does not exist" : $pictureForPreview;
+$descriptionOption = esc_attr( get_option( 'product_description' ) );
+$descriptionCA = Read_Table_Data::display_table_pps_values()->text;
+
 
 ?>
 
@@ -258,8 +246,8 @@ $descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
             <div id="profile-picture-preview" class="profile-picture"
                 style="background-image: url(<?php echo (!$pictureForPreview) ? $picturePrevious : $pictureForPreview; ?>);"></div>
         </div>
-        <h1 class="pps-username"><?php print $productName; ?></h1>
-        <h2 class="pps-description"><?php print $descriptionWpo; ?></h2>
+        <h1 class="pps-username"><?php echo (!$productName) ? $productNameCA : $productName; ?></h1>
+        <h2 class="pps-description"><?php echo (!$descriptionOption) ? $descriptionCA : $descriptionOption; ?></h2>
         <div class="icons-wrapper">
 
         </div>
