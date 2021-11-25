@@ -242,10 +242,28 @@ function link_button_text() {
 ?>
 
 
+<!-- The preview is in the same file! -->
+
 <h1>PPS Options</h1>
 <?php settings_errors(); ?>
 
 <?php 
+
+if (!$imgURLProduct){
+
+//    echo $imgURLProduct == false ?  'True - imgURLProduct Exists' : 'False - ImgURLProduct';
+    //    echo $imasdfasdfasdfgURLProduct == false ?  'True - imgURLProduct Exists' : 'False - ImgURLProduct';
+
+        $value  =5;
+
+        $check = isset($value) && !empty($value) ?: 'default';
+
+        echo $check;
+
+    // $weather = 'snowing';
+    // echo $weather == 'raining' ? 'It is raining outside' : 'It is snowing outside';
+
+}
 
 	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 	$productName = Read_Table_Data::display_table_pps_values()->name;
