@@ -255,15 +255,17 @@ $pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
    
        // echo $pictureForPreview;
 
-        echo (!$pictureForPreview) ? "This does not exist" : $pictureForPreview;
 
 
 
 
 
-	$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;
+
+	$picturePrevious =  Read_Table_Data::display_table_pps_values()->product_picture_var;
 	$productName = Read_Table_Data::display_table_pps_values()->name;
 	$descriptionWpo = Read_Table_Data::display_table_pps_values()->text;
+
+    echo (!$pictureForPreview) ? "This does not exist" : $pictureForPreview;
 
 ?>
 
@@ -271,7 +273,7 @@ $pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
     <div class="pps-sidebar">
         <div class="image-container">
             <div id="profile-picture-preview" class="profile-picture"
-                style="background-image: url(<?php print $picture; ?>);"></div>
+                style="background-image: url(<?php echo (!$pictureForPreview) ? $picturePrevious : $pictureForPreview; ?>);"></div>
         </div>
         <h1 class="pps-username"><?php print $productName; ?></h1>
         <h2 class="pps-description"><?php print $descriptionWpo; ?></h2>
