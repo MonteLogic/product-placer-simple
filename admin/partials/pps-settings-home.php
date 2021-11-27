@@ -94,7 +94,7 @@ function pps_sidebar_profile() {
         ?>
     <button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button">
     <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button>    
-    <input type="text" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLProduct) ? $imgURLValueFromDB : $imgURLProduct ?>" /> 
+    <input type="hidden" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLProduct) ? $imgURLValueFromDB : $imgURLProduct ?>" /> 
       
     <button type="button" class="button button-secondary" value="Remove" id="remove-picture">
     <span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
