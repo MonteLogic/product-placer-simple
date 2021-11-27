@@ -150,6 +150,43 @@ function pps_sidebar_profile() {
 
 }
 
+function link_button_text() {
+
+    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+    $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
+
+
+        ?>
+
+            <input type="text" name ="button_text" value ="<?php echo (!$linkButtonTextOp) ? $linkButtonTextFromDB : $linkButtonTextOp ?>" placeholder="" />
+
+            <p class="description">Write the text that will appear on button.</p>
+
+        <?php
+
+}
+
+
+
+
+function product_sidebar_name() {
+	// '.Read_Table_Data::display_table_pps_values().'
+
+    $nameValueFromDB = Read_Table_Data::display_table_pps_values()->name;
+
+    $productName = esc_attr( get_option( 'product_name' ) );
+
+    ?>
+
+    <input type="text" name="product_name" value ="<?php 
+        echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?>" placeholder="Description" />
+        
+    <p class="description">Write product name</p>
+    <?
+
+
+}
+
 function pps_star_rating() {
 
     $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
@@ -174,48 +211,9 @@ function pps_star_rating() {
 
 
 
-function product_sidebar_name() {
-	// '.Read_Table_Data::display_table_pps_values().'
-
-    $nameValueFromDB = Read_Table_Data::display_table_pps_values()->name;
-
-    $productName = esc_attr( get_option( 'product_name' ) );
-
-    ?>
-
-    <input type="text" name="product_name" value ="<?php 
-        echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?>" placeholder="Description" />
-        
-    <p class="description">Write product name</p>
-    <?
-
-
-}
-
-
-
-function link_button_text() {
-	// '.Read_Table_Data::display_table_pps_values().'
-
-    // I want these reading of database values to be together line upon line.
-    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
-
-// ToDo: Make logic for if the value isn't there.
-
-    if(!empty($linkButtonTextFromDB)){
-            echo '<input type="text" value ="'.$linkButtonTextFromDB.'" placeholder="" />
-    
-                        <p class="description">Write the text that will appear on button.</p>';
-                    
-        }
-    
-
-}
-
-
-
-
 ?>
+
+
 
 
 <!-- The preview is in the same file! -->
