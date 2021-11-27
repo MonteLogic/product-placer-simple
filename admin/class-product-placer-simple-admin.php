@@ -220,6 +220,7 @@ class Product_Placer_Simple_Admin {
 		register_setting( 'pps-settings-group', 'facebook_handler' );
 		register_setting( 'pps-settings-group', 'selected_page' );
 		register_setting( 'pps-settings-group', 'dropdown_settings' );
+		register_setting( 'pps-settings-group', 'star_rating' );
 		
 
 

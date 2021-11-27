@@ -25,10 +25,6 @@ include_once plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data
 
 $valueFromDB = Read_Table_Data::display_table_pps_values();
 
-function echo_some_value(){
-
-    echo 'value9499';
-}
 
 
 
@@ -61,50 +57,16 @@ function pps_product_url(){
 
     // The variable below this, could have naming conflicts.
     $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
-
-    // This field isn't automatically created in the database unless the save changes
-    // button is interacted with.
-
-    $ProductPageLinkWpo = esc_attr( get_option( 'product_page_link' ) );
-
-    if(empty($linkProductUrlFromCA )){
-
-        ?>
-        <input type="text" name="product_page_link"  value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />
-        <p class="description">Include link to your product.</p>
-        <?php
-
-    }
+    $ProductPageLinkOp= esc_attr( get_option( 'product_page_link' ) );
     
-    
-    if(!empty($linkProductUrlFromCA )){
+    ?>
+    <input type="text" name="product_page_link"  
+    value ="<?php echo (!$linkProductUrlFromCA ) ? $linkProductUrlFromCA : $ProductPageLinkOp ?> " placeholder="Enter link to your product here." />
+    <p class="description">Include link to your product.</p>
+    <?php
 
-
-            if(empty($ProductPageLinkWpo)){
-
-                ?>
-                <input type="text" name="product_page_link" value ="<?php echo $linkProductUrlFromCA ?> " placeholder="Enter link to your product here." />         
-                <p class="description">Include link to your product.</p>
-               
-                <?php
-                return 0;
-            }
-    
-            if(!empty($ProductPageLinkWpo)){
-
-
-                ?>
-                <input type="text" name="product_page_link" value ="<?php echo $ProductPageLinkWpo ?> " placeholder="Enter link to your product here." />         
-                <p class="description">Include link to your product.</p>
-                <?php
-
-            }
-    
-        }
 
 }
-
-
 
 
 
@@ -120,7 +82,7 @@ function pps_sidebar_profile() {
         // Keep this line because it has good button showing logic.
         ?>
 
-<button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button">
+    <button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button">
     <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button>
     <input type="hidden" id="profile-picture" name="profile_picture" value="<?php echo $imgURLProduct ?>" />;
 
@@ -128,25 +90,19 @@ function pps_sidebar_profile() {
 
     }
 
-
     if(!empty($imgURLValueFromDB)){
 
         ?>
-<button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button">
-        <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button>
-        
-        <input type="text" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLProduct) ? $imgURLValueFromDB : $imgURLProduct ?>" /> 
+    <button type="button" class="button button-secondary upload_image_button" value="Replace Product Picture" id="upload-button">
+    <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Replace Product Picture</button>    
+    <input type="text" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLProduct) ? $imgURLValueFromDB : $imgURLProduct ?>" /> 
       
-        
-        <button type="button" class="button button-secondary" value="Remove" id="remove-picture">
-            
-        <span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
+    <button type="button" class="button button-secondary" value="Remove" id="remove-picture">
+    <span class="sunset-icon-button dashicons-before dashicons-no"></span> Remove</button>
 
-        <?php 
+        <?php
 
-                        
     }
-            
 
 }
 
@@ -155,31 +111,25 @@ function link_button_text() {
     $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
     $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
 
-
         ?>
-
-            <input type="text" name ="button_text" value ="<?php echo (!$linkButtonTextOp) ? $linkButtonTextFromDB : $linkButtonTextOp ?>" placeholder="" />
-
-            <p class="description">Write the text that will appear on button.</p>
+    <input type="text" name ="button_text" value ="<?php echo (!$linkButtonTextOp) ? $linkButtonTextFromDB : $linkButtonTextOp ?>" placeholder="" />
+    <p class="description">Write the text that will appear on button.</p>
 
         <?php
 
 }
 
 
-
-
 function product_sidebar_name() {
-	// '.Read_Table_Data::display_table_pps_values().'
 
-    $nameValueFromDB = Read_Table_Data::display_table_pps_values()->name;
+    $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
 
-    $productName = esc_attr( get_option( 'product_name' ) );
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
 
     ?>
 
     <input type="text" name="product_name" value ="<?php 
-        echo (!$nameValueFromDB) ? $nameValueFromDB : $productName  ?>" placeholder="Description" />
+        echo (!$nameValueFromCA) ? $nameValueFromCA : $productNameOp  ?>" placeholder="Description" />
         
     <p class="description">Write product name</p>
     <?
@@ -188,23 +138,14 @@ function product_sidebar_name() {
 }
 
 function pps_star_rating() {
+    $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
+    $starRatingOp = esc_attr( get_option( 'star_rating' ) );
 
-    $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
+?>
+    <input type="number"  name="star_rating" min="0" max="5" maxlength="10" value ="<?php echo (!$starRatingOp) ? $starRatingCA : $starRatingOp ?>" placeholder="Star Rating" />    
+    <p class="description">Enter rating of product from 1 to 5</p>
 
-	if(empty($starRating)){
-
-	echo 'You have not added this value to the database.';
-
-    }
-
-    if(!empty($starRating)){
-            echo '<input type="text"  value ="'.$starRating.'" placeholder="Description" />
-    
-                        <p class="description">Enter rating of product from 1 to 5</p>';
-                    
-    }
-
-
+<?php
 
 
 }
@@ -212,7 +153,6 @@ function pps_star_rating() {
 
 
 ?>
-
 
 
 
