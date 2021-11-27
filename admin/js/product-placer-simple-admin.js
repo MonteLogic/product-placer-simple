@@ -52,20 +52,22 @@
 			})
 			.open();
 
-			// #profile-picture-preview
-
-
-
-
-
-
-
-
-
-
-
 	 });
- 
+
+
+
+	  $(document).on("click", "#remove-picture", function (e) {
+
+		e.preventDefault();
+		var answer = confirm("Are you sure you want to remove your Profile Picture?");
+		if( answer == true ){
+			$('#profile-picture').val('');
+			//$('.sunset-general-form').submit();
+		}
+		return;
+	});
+
+
  
  
 
