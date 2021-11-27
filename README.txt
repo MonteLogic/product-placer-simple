@@ -27,5 +27,9 @@ I just noticed that none of the values change at all after Save Changes is press
 with the Settings API
 
 
+This is how it should be refactored to =>
 
-THE DESCRIPTION VALUE IS CHANGING!!!
+<?php
+echo (!$starRatingOp) ? $starRatingCA : $starRatingOp 
+
+?>

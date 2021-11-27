@@ -39,12 +39,11 @@ function pps_sidebar_description() {
 
 
     $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
-
     $descriptionWpo = esc_attr( get_option( 'product_description' ) );
 
 
     ?>
-<textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description"><?php 
+    <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description"><?php 
     echo (!$descriptionValueFromCA ) ? $descriptionValueFromCA : $descriptionWpo ?></textarea>
     <p class="description">Write product name</p>
     <?php
@@ -123,17 +122,14 @@ function link_button_text() {
 function product_sidebar_name() {
 
     $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
-
     $productNameOp = esc_attr( get_option( 'product_name' ) );
 
     ?>
 
     <input type="text" name="product_name" value ="<?php 
         echo (!$nameValueFromCA) ? $nameValueFromCA : $productNameOp  ?>" placeholder="Description" />
-        
     <p class="description">Write product name</p>
     <?
-
 
 }
 
@@ -147,11 +143,7 @@ function pps_star_rating() {
 
 <?php
 
-
 }
-
-
-
 ?>
 
 
