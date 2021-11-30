@@ -221,6 +221,12 @@ class Product_Placer_Simple_Admin {
 		register_setting( 'pps-settings-group', 'selected_page' );
 		register_setting( 'pps-settings-group', 'dropdown_settings' );
 		register_setting( 'pps-settings-group', 'star_rating' );
+
+
+
+		// toDo: Check wp_ppsimple on import and update.
+		// Why not right here, I load the object of wp_ppsimple and see if '==' and 
+		// if it is, do no nothing, but if it is not load the different values into wp_options.
 		
 
 
