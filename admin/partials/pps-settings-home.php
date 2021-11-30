@@ -204,7 +204,7 @@ $descriptionCA = Read_Table_Data::display_table_pps_values()->text;
     <!-- What does the submit_button() look like without the wrapper method? How would I 
             replicate this without Wordpress? 
         -->
-    <?php submit_button(); ?>
+    <?php submit_button('Save Changes','primary','btnSubmit'); ?>
 
 
 </form>
