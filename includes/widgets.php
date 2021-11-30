@@ -39,23 +39,51 @@ class PPS_Widget_Plugin extends WP_Widget {
     
      public function widget( $args, $instance ) {
 
-        $productTitle = Read_Table_Data::display_table_pps_values()->name;
+     //   $productTitle = Read_Table_Data::display_table_pps_values()->name;
+        $productNameCA = Read_Table_Data::display_table_pps_values()->name;
+        $productNameOp = esc_attr( get_option( 'product_name' ) );
+ 
+
+
         $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
         $linkURLForProduct = Read_Table_Data::display_table_pps_values()->link_url;
         $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
         $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
         $description = Read_Table_Data::display_table_pps_values()->text;
         $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
+/*
+    $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
+    $descriptionWpo = esc_attr( get_option( 'product_description' ) );
 
+    $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
+    $ProductPageLinkOp= esc_attr( get_option( 'product_page_link' ) );
+
+    $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
+    $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
+
+
+    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+    $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
+
+    $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
+
+    $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
+    $starRatingOp = esc_attr( get_option( 'star_rating' ) );
+    
+    $productNameCA = Read_Table_Data::display_table_pps_values()->name;
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
+
+    echo (!$productNameOp) ? $productNameCA : $productNameOp 
+
+*/
         echo $args['before_widget'];
         // This is the start of the div. 
         echo '<div class ="wrapping-class-ca" style="padding: 11px;">';
 
 
- 
-        if ( ! empty( $productTitle  ) ) {
-            echo $productTitle;
-        }
+        echo (!$productNameOp) ? $productNameCA : $productNameOp;
+
 
 
 
