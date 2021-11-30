@@ -62,7 +62,10 @@ class PPS_Widget_Plugin extends WP_Widget {
         $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
     
 
-        $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
+        $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
+        $starRatingOp = esc_attr( get_option( 'star_rating' ) );
+
+
 /*
     $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
     $descriptionWpo = esc_attr( get_option( 'product_description' ) );
@@ -116,11 +119,14 @@ class PPS_Widget_Plugin extends WP_Widget {
         echo esc_html__( $instance['text'], 'text_domain' );
         echo '<div class="star-rating-wrap" style="padding-top: 12px; padding-bottom: 5px;">';
         
-        if ( ! empty( $starRating ) ) {
+        if ( ! empty( $starRatingCA ) ) {
 
 
+            
+            
+            
                 $args = array(
-                    'rating' => $starRating,
+                    'rating' => (!$starRatingOp) ? $starRatingCA : $starRatingOp,
                     'type' => 'rating',
                     'number' => '',
                  );
