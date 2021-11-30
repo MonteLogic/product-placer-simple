@@ -1,30 +1,21 @@
 
-
-Integrate this into the widgets.php
-
-https://gist.github.com/dchavours/99b8999a69fd920a8b38b34da20a5e30
-
-
-
-Current milestone 001d -
-I have to make all of the fields be able to be updated and also have to style the widget. 
-
 After that work on payment gate, then work on the fact that users can make more than one product. But focus on one single 
 product for now and get that perfect before expanding. 
 
 
 
-Right now: 
-Making fields changable through the admin side. 
-
 
 toDo: 
-Make it so thhat the replace button actually sends logic to change the value of $picture which is: 
-'$picture =  Read_Table_Data::display_table_pps_values()->product_picture_var;'
+Make it that when users change over or add pps plugin there values are saved in wp_options, 
+thus, I don't have to constantly instatie obkjects to get information.
 
+When I do this I should make it so that the text for the button automatically says Buy Now when created.  
 
-I just noticed that none of the values change at all after Save Changes is pressed. So I guess I have to register all of them
-with the Settings API
+Also, make it so the text field isn't imported anymore because it creates a redundancy.
+
+It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
+It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
+
 
 
 This is how it should be refactored to =>
@@ -34,9 +25,6 @@ echo (!$starRatingOp) ? $starRatingCA : $starRatingOp
 
 ?>
 
-
-It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
-It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
 
 
 <input type="text" id="profile-picture" name="profile_picture" value="<?php  echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>" />
