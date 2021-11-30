@@ -33,3 +33,10 @@ This is how it should be refactored to =>
 echo (!$starRatingOp) ? $starRatingCA : $starRatingOp 
 
 ?>
+
+
+It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
+It would be really good if I can switch all of the values of wp_ppsimple things into wp_options. 
+
+
+<input type="text" id="profile-picture" name="profile_picture" value="<?php  echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>" />

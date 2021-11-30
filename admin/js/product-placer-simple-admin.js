@@ -61,7 +61,7 @@
 		e.preventDefault();
 		var answer = confirm("Are you sure you want to remove your Profile Picture?");
 		if( answer == true ){
-			$('#profile-picture').val('empty');
+			$('#profile-picture').val('null');
 			//$('.sunset-general-form').submit();
 		}
 		return;
