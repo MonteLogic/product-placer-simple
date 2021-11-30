@@ -39,30 +39,39 @@ class PPS_Widget_Plugin extends WP_Widget {
     
      public function widget( $args, $instance ) {
 
-     //   $productTitle = Read_Table_Data::display_table_pps_values()->name;
+
         $productNameCA = Read_Table_Data::display_table_pps_values()->name;
         $productNameOp = esc_attr( get_option( 'product_name' ) );
- 
 
 
-        $imgURLValueFromDB = Read_Table_Data::display_table_pps_values()->product_picture_var;
-        $linkURLForProduct = Read_Table_Data::display_table_pps_values()->link_url;
-        $descriptionValueFromDB = Read_Table_Data::display_table_pps_values()->description;
-        $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
-        $description = Read_Table_Data::display_table_pps_values()->text;
+        $linkProductCA = Read_Table_Data::display_table_pps_values()->link_url;
+        $linkProductOp= esc_attr( get_option( 'product_page_link' ) );
+
+
+        $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
+        $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
+
+        $descriptionCA = Read_Table_Data::display_table_pps_values()->description;
+        $descriptionOp = esc_attr( get_option( 'product_description' ) );
+
+        // echo (!$descriptionOp) ? $descriptionCA : $descriptionOp 
+
+
+//        $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+        $linkButtonTextCA = Read_Table_Data::display_table_pps_values()->link_text;
+        $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
+    
+
         $starRating = Read_Table_Data::display_table_pps_values()->star_rating;
 /*
     $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
     $descriptionWpo = esc_attr( get_option( 'product_description' ) );
 
-    $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
-    $ProductPageLinkOp= esc_attr( get_option( 'product_page_link' ) );
-
     $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
     $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
 
-    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+    $linkButtonTextCA = Read_Table_Data::display_table_pps_values()->link_text;
     $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
 
     $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
@@ -70,13 +79,17 @@ class PPS_Widget_Plugin extends WP_Widget {
 
     $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
     $starRatingOp = esc_attr( get_option( 'star_rating' ) );
+
+    $linkProductUrlCA = Read_Table_Data::display_table_pps_values()->link_url;
+    $linkProductUrlOp= esc_attr( get_option( 'product_page_link' ) );
     
-    $productNameCA = Read_Table_Data::display_table_pps_values()->name;
-    $productNameOp = esc_attr( get_option( 'product_name' ) );
 
     echo (!$productNameOp) ? $productNameCA : $productNameOp 
 
 */
+
+
+
         echo $args['before_widget'];
         // This is the start of the div. 
         echo '<div class ="wrapping-class-ca" style="padding: 11px;">';
@@ -86,26 +99,19 @@ class PPS_Widget_Plugin extends WP_Widget {
 
 
 
+        if( !empty($linkProductCA ) ): ?>
 
-
-        // This checks if the image url has been inputted.
-        if ( ! empty( $linkURLForProduct ) ){
-            // This displays the image by putting it in the source tag.
-        ?>
-
-        <a href="<?php echo $linkURLForProduct; ?>">
-            <img src="<?php echo esc_url(   $imgURLValueFromDB ); ?>" alt="" width="500" height="600">
+        <a href="<?php echo (!$linkProductOp) ? $linkProductCA : $linkProductOp ?>">
+            <img src="<?php echo (!$imgURLValueOp) ? esc_url( $imgURLValueCA ) : esc_url( $imgURLValueOp )  ?>" alt="" width="500" height="600">
         </a>
-
-        <?php
-
-        }
+            <?php 
+        endif;
 
 
  
         echo '<div class="textwidget">';
  
-        echo Read_Table_Data::display_table_pps_values()->text;
+        echo (!$descriptionOp) ? $descriptionCA : $descriptionOp;
 
         echo esc_html__( $instance['text'], 'text_domain' );
         echo '<div class="star-rating-wrap" style="padding-top: 12px; padding-bottom: 5px;">';
@@ -126,11 +132,11 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         // This beings the widget button logic.
 
-        if( !empty($linkURLForProduct ) ): ?>
+        if( !empty($linkProductCA ) ): ?>
 
             <div class="text-center">
-                <a href="<?php echo $linkURLForProduct; ?>" style="color: #fff" id="widget-button-ca"
-                    class="btn btn-primary float-right"><?php echo $linkButtonTextFromDB; ?> </a>
+                <a href="<?php echo (!$linkProductOp) ? $linkProductCA : $linkProductOp ?>" style="color: #fff" id="widget-button-ca"
+                    class="btn btn-primary float-right"><?php echo(!$linkButtonTextOp) ? $linkButtonTextCA : $linkButtonTextOp ?> </a>
             </div>
 
             <?php 

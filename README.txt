@@ -40,3 +40,6 @@ It would be really good if I can switch all of the values of wp_ppsimple things 
 
 
 <input type="text" id="profile-picture" name="profile_picture" value="<?php  echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>" />
+
+
+text and description are the same thing(?)
