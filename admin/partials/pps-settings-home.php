@@ -115,11 +115,11 @@ function pps_sidebar_profile() {
 
 function link_button_text() {
 
-    $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
+    $linkButtonTextCA = get_option( 'widget_ca_theme' )[2]['linkText'];
     $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
 
         ?>
-    <input type="text" name ="button_text" value ="<?php echo (!$linkButtonTextOp) ? $linkButtonTextFromDB : $linkButtonTextOp ?>" placeholder="" />
+    <input type="text" name ="button_text" value ="<?php echo (!$linkButtonTextOp) ? $linkButtonTextCA : $linkButtonTextOp ?>" placeholder="" />
     <p class="description">Write the text that will appear on button.</p>
 
         <?php
@@ -129,20 +129,20 @@ function link_button_text() {
 
 function product_sidebar_name() {
 
-    $productName = esc_attr( get_option( 'product_name' ) );
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
     $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
-
+    
     ?>
 
     <input type="text" name="product_name" value ="<?php 
-        echo (!$productName) ? $productNameCA : $productName; ?>" placeholder="Description" />
+        echo (!$productNameOp) ? $productNameCA : $productNameOp; ?>" placeholder="Description" />
     <p class="description">Write product name</p>
     <?
 
 }
 
 function pps_star_rating() {
-    $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
+    $starRatingCA = get_option( 'widget_ca_theme' )[2]['starRating']; 
     $starRatingOp = esc_attr( get_option( 'star_rating' ) );
 
 ?>
@@ -163,16 +163,17 @@ function pps_star_rating() {
 
 <?php 
 
-$imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
-$imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
+    $imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
+    $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
 
-$productName = esc_attr( get_option( 'product_name' ) );
-$productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
+    $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
 
 
-$descriptionOption = esc_attr( get_option( 'product_description' ) );
-$descriptionCA = Read_Table_Data::display_table_pps_values()->text;
+    $descriptionOp = esc_attr( get_option( 'product_description' ) );
+    $descriptionCA = get_option( 'widget_ca_theme' )[2]['productText'];
+
 
 
 ?>
@@ -183,8 +184,8 @@ $descriptionCA = Read_Table_Data::display_table_pps_values()->text;
             <div id="profile-picture-preview" class="profile-picture"
                 style="background-image: url(<?php echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>);"></div>
         </div>
-        <h1 class="pps-username"><?php echo (!$productName) ? $productNameCA : $productName; ?></h1>
-        <h2 class="pps-description"><?php echo (!$descriptionOption) ? $descriptionCA : $descriptionOption; ?></h2>
+        <h1 class="pps-username"><?php echo (!$productNameOp) ? $productNameCA : $productNameOp; ?></h1>
+        <h2 class="pps-description"><?php echo (!$descriptionOp) ? $descriptionCA : $descriptionOp; ?></h2>
         <div class="icons-wrapper">
 
         </div>

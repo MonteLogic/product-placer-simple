@@ -65,33 +65,7 @@ class PPS_Widget_Plugin extends WP_Widget {
         $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
         $starRatingOp = esc_attr( get_option( 'star_rating' ) );
 
-
-/*
-    $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
-    $descriptionWpo = esc_attr( get_option( 'product_description' ) );
-
-    $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
-    $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
-
-
-    $linkButtonTextCA = Read_Table_Data::display_table_pps_values()->link_text;
-    $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
-
-    $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
-    $productNameOp = esc_attr( get_option( 'product_name' ) );
-
-    $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
-    $starRatingOp = esc_attr( get_option( 'star_rating' ) );
-
-    $linkProductUrlCA = Read_Table_Data::display_table_pps_values()->link_url;
-    $linkProductUrlOp= esc_attr( get_option( 'product_page_link' ) );
-    
-
-    echo (!$productNameOp) ? $productNameCA : $productNameOp 
-
-*/
-
-
+        echo '4556';
 
         echo $args['before_widget'];
         // This is the start of the div. 
