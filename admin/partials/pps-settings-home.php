@@ -75,13 +75,13 @@ function pps_sidebar_profile() {
     $imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
     $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
-    echo '9556';
-    echo $imgURLValueCA;
+    //echo '9556';
+    //echo $imgURLValueCA;
 
-// This logic is the button for which to be replaced. 
+    // This logic is the button for which to be replaced. 
 
 
-//echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp;
+    //echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp;
 
 
     if(empty($imgURLValueCA)  || ($imgURLValueOp == "null")){
@@ -129,13 +129,13 @@ function link_button_text() {
 
 function product_sidebar_name() {
 
-    $nameValueFromCA = Read_Table_Data::display_table_pps_values()->name;
-    $productNameOp = esc_attr( get_option( 'product_name' ) );
+    $productName = esc_attr( get_option( 'product_name' ) );
+    $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
 
     ?>
 
     <input type="text" name="product_name" value ="<?php 
-        echo (!$nameValueFromCA) ? $nameValueFromCA : $productNameOp  ?>" placeholder="Description" />
+        echo (!$productName) ? $productNameCA : $productName; ?>" placeholder="Description" />
     <p class="description">Write product name</p>
     <?
 
@@ -168,8 +168,7 @@ $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
 
 $productName = esc_attr( get_option( 'product_name' ) );
-$productNameCA = Read_Table_Data::display_table_pps_values()->name;
-
+$productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
 
 
 $descriptionOption = esc_attr( get_option( 'product_description' ) );
