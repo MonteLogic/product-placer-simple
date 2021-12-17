@@ -71,8 +71,12 @@ function pps_product_url(){
 
 function pps_sidebar_profile() {
     // I would like to change product_picture_var to product_picture_url
-    $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
+
+    $imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
     $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
+
+    echo '9556';
+    echo $imgURLValueCA;
 
 // This logic is the button for which to be replaced. 
 
@@ -87,7 +91,7 @@ function pps_sidebar_profile() {
 
     <button type="button" class="button button-secondary upload_image_button" value="Upload Product Picture" id="upload-button">
     <span class="sunset-icon-button dashicons-before dashicons-format-image"></span> Upload Profile Picture</button>
-    <input type="hidden" id="profile-picture" name="profile_picture" value="<?php echo $imgURLProduct ?>" />
+    <input type="hidden" id="profile-picture" name="profile_picture" value="<?php echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>" />
 
         <?php
 
@@ -159,8 +163,8 @@ function pps_star_rating() {
 
 <?php 
 
-$pictureForPreview = esc_attr( get_option( 'profile_picture' ) );
-$picturePrevious =  Read_Table_Data::display_table_pps_values()->product_picture_var;
+$imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
+$imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
 
 $productName = esc_attr( get_option( 'product_name' ) );
@@ -178,7 +182,7 @@ $descriptionCA = Read_Table_Data::display_table_pps_values()->text;
     <div class="pps-sidebar">
         <div class="image-container">
             <div id="profile-picture-preview" class="profile-picture"
-                style="background-image: url(<?php echo (!$pictureForPreview) ? $picturePrevious : $pictureForPreview; ?>);"></div>
+                style="background-image: url(<?php echo (!$imgURLValueOp) ? $imgURLValueCA : $imgURLValueOp ?>);"></div>
         </div>
         <h1 class="pps-username"><?php echo (!$productName) ? $productNameCA : $productName; ?></h1>
         <h2 class="pps-description"><?php echo (!$descriptionOption) ? $descriptionCA : $descriptionOption; ?></h2>
