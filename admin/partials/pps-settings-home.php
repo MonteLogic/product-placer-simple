@@ -21,8 +21,6 @@
 <?php
 
 
-include_once plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data.php';
-
 
 function pps_sidebar_options() {
 	echo 'Customize your Sidebar Options';
@@ -51,12 +49,12 @@ function pps_sidebar_description() {
 function pps_product_url(){
 
     // The variable below this, could have naming conflicts.
-    $linkProductUrlFromCA = get_option( 'widget_ca_theme' )[2]['linkUrl'];
-    $ProductPageLinkOp= esc_attr( get_option( 'product_page_link' ) );
+    $linkProductCA = get_option( 'widget_ca_theme' )[2]['linkUrl'];
+    $linkProductOp= esc_attr( get_option( 'product_page_link' ) );
     
     ?>
     <input type="text" name="product_page_link"  
-    value ="<?php echo (!$linkProductUrlFromCA ) ? $linkProductUrlFromCA : $ProductPageLinkOp ?> " placeholder="Enter link to your product here." />
+    value ="<?php echo (!$linkProductCA ) ? $linkProductCA : $linkProductOp ?> " placeholder="Enter link to your product here." />
     <p class="description">Include link to your product.</p>
     <?php
 
@@ -125,8 +123,9 @@ function link_button_text() {
 
 function product_sidebar_name() {
 
-    $productNameOp = esc_attr( get_option( 'product_name' ) );
     $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
+    $productNameOp = esc_attr( get_option( 'product_name' ) );
+
     
     ?>
 

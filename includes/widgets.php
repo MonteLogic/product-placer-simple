@@ -8,8 +8,6 @@
 
  // If class my_widget exists 
 
-include_once plugin_dir_path( dirname( __FILE__ ) ) .  'admin\database\read-table-data.php';
-
 
 class PPS_Widget_Plugin extends WP_Widget {
  
@@ -40,29 +38,23 @@ class PPS_Widget_Plugin extends WP_Widget {
      public function widget( $args, $instance ) {
 
 
-        $productNameCA = Read_Table_Data::display_table_pps_values()->name;
+        $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
         $productNameOp = esc_attr( get_option( 'product_name' ) );
 
+        $linkProductCA = get_option( 'widget_ca_theme' )[2]['linkUrl'];
+        $linkProductOp = esc_attr( get_option( 'product_page_link' ) );
 
-        $linkProductCA = Read_Table_Data::display_table_pps_values()->link_url;
-        $linkProductOp= esc_attr( get_option( 'product_page_link' ) );
-
-
-        $imgURLValueCA = Read_Table_Data::display_table_pps_values()->product_picture_var;
+        $imgURLValueCA = get_option( 'widget_ca_theme' )[2]['productPictureUrl'];
         $imgURLValueOp = esc_attr( get_option( 'profile_picture' ) );
 
-        $descriptionCA = Read_Table_Data::display_table_pps_values()->description;
+        $descriptionCA = get_option( 'widget_ca_theme' )[2]['productText'];
         $descriptionOp = esc_attr( get_option( 'product_description' ) );
 
-        // echo (!$descriptionOp) ? $descriptionCA : $descriptionOp 
-
-
-//        $linkButtonTextFromDB = Read_Table_Data::display_table_pps_values()->link_text;
-        $linkButtonTextCA = Read_Table_Data::display_table_pps_values()->link_text;
+        $linkButtonTextCA = get_option( 'widget_ca_theme' )[2]['linkText'];
         $linkButtonTextOp = esc_attr( get_option( 'button_text' ) );
     
 
-        $starRatingCA = Read_Table_Data::display_table_pps_values()->star_rating;
+        $starRatingCA = get_option( 'widget_ca_theme' )[2]['starRating']; 
         $starRatingOp = esc_attr( get_option( 'star_rating' ) );
 
         echo '4556';
@@ -123,8 +115,11 @@ class PPS_Widget_Plugin extends WP_Widget {
             endif; 
 
         echo '</div>';
- 
+
+
         echo $args['after_widget'];
+
+
 
         echo '</div>';
     }

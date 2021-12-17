@@ -56,15 +56,6 @@ class Product_Placer_Simple_Admin {
 	}
 
 
-	/**
-	 * Load the required dependencies for this plugin.
-	 *
-	 * Include the following files to run logic related to this file:
-	 * - Read data from table, functions consist of returnable values and logic which can be iterated upon.
-	 *	 : File - admin/database/read-table-data.php
-	 *	 : Classes - "Read_Table_Data"
-
-	 */
 
 
 
