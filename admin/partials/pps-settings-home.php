@@ -23,10 +23,6 @@
 
 include_once plugin_dir_path( dirname( __FILE__ ) ) .  'database\read-table-data.php';
 
-$valueFromDB = Read_Table_Data::display_table_pps_values();
-
-
-
 
 function pps_sidebar_options() {
 	echo 'Customize your Sidebar Options';
@@ -38,7 +34,7 @@ function pps_sidebar_options() {
 function pps_sidebar_description() {
 
 
-    $descriptionValueFromCA = Read_Table_Data::display_table_pps_values()->description;
+    $descriptionValueFromCA = get_option( 'widget_ca_theme' )[2]['productText'];
     $descriptionWpo = esc_attr( get_option( 'product_description' ) );
 
 
@@ -55,7 +51,7 @@ function pps_sidebar_description() {
 function pps_product_url(){
 
     // The variable below this, could have naming conflicts.
-    $linkProductUrlFromCA = Read_Table_Data::display_table_pps_values()->link_url;
+    $linkProductUrlFromCA = get_option( 'widget_ca_theme' )[2]['linkUrl'];
     $ProductPageLinkOp= esc_attr( get_option( 'product_page_link' ) );
     
     ?>
