@@ -54,7 +54,7 @@ function pps_product_url(){
     
     ?>
     <input type="text" name="product_page_link"  
-    value ="<?php echo (!$linkProductCA ) ? $linkProductCA : $linkProductOp ?> " placeholder="Enter link to your product here." />
+    value ="<?php echo (!$linkProductOp ) ? $linkProductCA : $linkProductOp ?> " placeholder="Enter link to your product here." />
     <p class="description">Include link to your product.</p>
     <?php
 
