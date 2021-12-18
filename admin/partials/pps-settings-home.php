@@ -32,13 +32,13 @@ function pps_sidebar_options() {
 function pps_sidebar_description() {
 
 
-    $descriptionValueFromCA = get_option( 'widget_ca_theme' )[2]['productText'];
-    $descriptionWpo = esc_attr( get_option( 'product_description' ) );
+    $descriptionCA = get_option( 'widget_ca_theme' )[2]['productText'];
+    $descriptionOp = esc_attr( get_option( 'product_description' ) );
 
 
     ?>
     <textarea name="product_description" class="widefat" cols="50" rows="5" placeholder="Description"><?php 
-    echo (!$descriptionValueFromCA ) ? $descriptionValueFromCA : $descriptionWpo ?></textarea>
+    echo (!$descriptionOp ) ? $descriptionCA : $descriptionOp ?></textarea>
     <p class="description">Write product name</p>
     <?php
 

@@ -32,11 +32,10 @@ class PPS_Widget_Plugin extends WP_Widget {
     );
 
 
-    // front-end display of widget
+    // frontend display of widget
  
     
      public function widget( $args, $instance ) {
-
 
         $productNameCA = get_option( 'widget_ca_theme' )[2]['title'];
         $productNameOp = esc_attr( get_option( 'product_name' ) );
@@ -66,8 +65,6 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         echo (!$productNameOp) ? $productNameCA : $productNameOp;
 
-
-
         if( !empty($linkProductCA ) ): ?>
 
         <a href="<?php echo (!$linkProductOp) ? $linkProductCA : $linkProductOp ?>">
@@ -76,8 +73,6 @@ class PPS_Widget_Plugin extends WP_Widget {
             <?php 
         endif;
 
-
- 
         echo '<div class="textwidget">';
  
         echo (!$descriptionOp) ? $descriptionCA : $descriptionOp;
