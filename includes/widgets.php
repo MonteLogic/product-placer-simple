@@ -116,8 +116,10 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         echo '</div>';
 
+        if (!empty($args['after_widget'])) {
+            echo $args['after_widget'];
+        }
 
-        echo $args['after_widget'];
 
 
 
