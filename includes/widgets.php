@@ -56,7 +56,6 @@ class PPS_Widget_Plugin extends WP_Widget {
         $starRatingCA = get_option( 'widget_ca_theme' )[2]['starRating']; 
         $starRatingOp = esc_attr( get_option( 'star_rating' ) );
 
-        echo '4556';
 
         echo $args['before_widget'];
         // This is the start of the div. 
@@ -64,13 +63,15 @@ class PPS_Widget_Plugin extends WP_Widget {
 
 
         echo (!$productNameOp) ? $productNameCA : $productNameOp;
-
-        if( !empty($linkProductCA ) ): ?>
-
+        
+ 
+        if( empty($linkProductCA ) ): ?>
+        
         <a href="<?php echo (!$linkProductOp) ? $linkProductCA : $linkProductOp ?>">
             <img src="<?php echo (!$imgURLValueOp) ? esc_url( $imgURLValueCA ) : esc_url( $imgURLValueOp )  ?>" alt="" width="500" height="600">
         </a>
-            <?php 
+            <?php
+        echo '556'; 
         endif;
 
         echo '<div class="textwidget">';
@@ -99,7 +100,7 @@ class PPS_Widget_Plugin extends WP_Widget {
 
         // This beings the widget button logic.
 
-        if( !empty($linkProductCA ) ): ?>
+        if( empty($linkProductCA ) ): ?>
 
             <div class="text-center">
                 <a href="<?php echo (!$linkProductOp) ? $linkProductCA : $linkProductOp ?>" style="color: #fff" id="widget-button-ca"
