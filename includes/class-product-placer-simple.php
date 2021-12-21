@@ -140,7 +140,6 @@ class Product_Placer_Simple {
 		 * Calling jal_install 
 		 */
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/database/create-table.php';
 
 
 		$this->loader = new Product_Placer_Simple_Loader();
@@ -174,7 +173,6 @@ class Product_Placer_Simple {
 	private function define_admin_hooks() {
 
 		$plugin_admin = new Product_Placer_Simple_Admin( $this->get_plugin_name(), $this->get_version() );
-		$database_read = new Create_Table( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -192,19 +190,7 @@ class Product_Placer_Simple {
 		// 
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'wpdocs_register_widgets' );
 
-		// // Create a table for pps. 
-		// $this->loader->add_action( 'activated_plugin', $plugin_admin, 'upgrade_database_ppsimple' );
-	
 
-		// Create a table for pps. 
-		$this->loader->add_action( 'activated_plugin', $database_read, 'jal_install' );
-	
-		// Add to table for pps.
-		//  jal_install_data
-		$this->loader->add_action( 'activated_plugin', $database_read, 'jal_install_data' );
-
-
-	//	$this->loader->add_action( 'admin_init', $plugin_admin, 'display_table_pps_values' );
 
 	}
 
