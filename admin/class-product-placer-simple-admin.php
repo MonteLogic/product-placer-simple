@@ -139,7 +139,7 @@ class Product_Placer_Simple_Admin {
 	
 		
 		// I'll deal with this later 
-			add_submenu_page( 'ParentPagePPS', 'Sub 1', 'PPS Importer', 'manage_options', 'SubPagePPS', array( $this , 'SubPagePPS_function' ));
+			add_submenu_page( 'ParentPagePPS', 'Sub 1', 'PPS Payment', 'manage_options', 'SubPagePPS', array( $this , 'SubPagePPS_function' ));
 		
 		}
 

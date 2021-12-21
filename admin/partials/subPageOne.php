@@ -17,6 +17,6 @@
 
 
 
-<h1>Second Page</h1>
+<h1>This page is where the details about the payments coming through will be.</h1>
 
 
