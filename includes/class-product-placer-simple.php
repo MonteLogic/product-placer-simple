@@ -135,11 +135,13 @@ class Product_Placer_Simple {
 
 		require_once( ABSPATH . 'wp-admin/includes/template.php' );
 
+		// ...
 
 		/**
-		 * Calling jal_install 
+		 * Custom Post Types
 		 */
-
+	//	require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-product-placer-simple-post_types.php';
+		// ...
 
 
 		$this->loader = new Product_Placer_Simple_Loader();
@@ -189,6 +191,8 @@ class Product_Placer_Simple {
 		// 
 		// 
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'wpdocs_register_widgets' );
+
+		$this->loader->add_action( 'init', $plugin_admin, 'my_first_post_type' );
 
 
 

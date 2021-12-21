@@ -252,6 +252,31 @@ class Product_Placer_Simple_Admin {
 			register_widget( 'PPS_Widget_Plugin' );
 		}
 
+		function my_first_post_type(){
+
+			$args = array(
+				
+				'labels' => array(
+					
+					'name' => 'Cars',
+					'singular_name' => 'Car',
+					
+					
+			),
+			
+				'public' => true,
+				'has_archive' =>true,
+				'supports' => array('title', 'editor','thumbnail'),
+				
+				
+			);
+			
+			register_post_type('cars', $args);
+			
+			
+			}
+			
+
 
 
 	 // The Product_Placer_Simple_Admin class ends here
