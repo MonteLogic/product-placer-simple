@@ -29,4 +29,19 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+
+
+
+    $('#simple-contact-form_form').submit( function (event) {
+     
+        event.preventDefault();
+        
+        var form = $(this).serialize();
+        
+        console.log(form);
+        
+    });
+
+
+
 })( jQuery );
