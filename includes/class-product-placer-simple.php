@@ -192,8 +192,7 @@ class Product_Placer_Simple {
 		// 
 		$this->loader->add_action( 'widgets_init', $plugin_admin, 'wpdocs_register_widgets' );
 
-		$this->loader->add_action( 'init', $plugin_admin, 'my_first_post_type' );
-		$this->loader->add_action( 'admin_init', $plugin_admin, 'create_page_on_activation' );
+
 
 
 	}
