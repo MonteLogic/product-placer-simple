@@ -275,6 +275,8 @@ class Product_Placer_Simple_Admin {
 			
 			
 			}
+
+			
 			
 
 
