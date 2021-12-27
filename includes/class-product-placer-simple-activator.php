@@ -19,6 +19,31 @@
 
 		// count how many time
 
+		if (!post_exists( 'pps-page-2')){
+
+			$current_user = wp_get_current_user();
+
+			$baseName = 'HintonBurger';
+			$location = 'Westboro, Richmond rd.';
+			$restaurant_owner_id = 62;
+			
+			// create post object
+			$page = array(
+			  'post_title'  => __( 'pps-page-2' ),
+			  'post_status' => 'publish',
+			  'post_author' => $current_user->ID,
+			  'post_type'   => 'page',
+			);
+			
+			// insert the post into the database
+			wp_insert_post( $page );
+
+		}
+
+
+
+
+
 
 		
 		if ( $wpdb->get_row( "SELECT post_name FROM {$wpdb->prefix}posts WHERE post_name = 'pps-cart-page'", 'ARRAY_A' == null ) ) {
@@ -40,7 +65,11 @@
 			
 			// // insert the post into the database
 			// wp_insert_post( $page );
-		  }
+
+		}else{
+			  // This is actually true because it gets hit even though it creates an error.
+
+			}
 
 	
 	}
