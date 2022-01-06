@@ -14,9 +14,24 @@
 
 	public static function create_page_on_activation() {
 
+		
+		$content_in_page = '
+		<tr class="wpspsc_checkout_form"><td colspan="4"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="item_name_1" value="Test Product">
+			<input type="hidden" name="amount_1" value="29.95">
+			<input type="hidden" name="quantity_1" value="1">
+			<input type="hidden" name="item_number_1" value="">
+		<input type="hidden" name="shipping_1" value="0.00"><input type="hidden" name="no_shipping" value="1"><input type="image" src="http://michublocal.local/wp-content/plugins/wordpress-simple-paypal-shopping-cart/images/paypal_checkout_EN.png" name="submit" class="wp_cart_checkout_button wp_cart_checkout_button_1" style="" alt="Make payments with PayPal - it\'s fast, free and secure!"><input type="hidden" name="return" value="http://michublocal.local?reset_wp_cart=1"><input type="hidden" name="notify_url" value="http://michublocal.local/?simple_cart_ipn=1">
+		<input type="hidden" name="business" value="dchavours@gmail.com">
+		<input type="hidden" name="currency_code" value="USD">
+		<input type="hidden" name="cmd" value="_cart">
+		<input type="hidden" name="upload" value="1">
+		<input type="hidden" name="rm" value="2">
+		<input type="hidden" name="charset" value="utf-8">
+		<input type="hidden" name="bn" value="TipsandTricks_SP"><input type="hidden" name="custom" value="wp_cart_id%3D231%26ip%3D127.0.0.1"></form></td></tr>
+		';
+
 		global $wpdb;
-
-
 		// count how many time
 
 		if (!post_exists( 'pps-page-2')){
@@ -33,6 +48,9 @@
 			  'post_status' => 'publish',
 			  'post_author' => $current_user->ID,
 			  'post_type'   => 'page',
+			  'post_content'   => $content_in_page
+			  
+
 			);
 			
 			// insert the post into the database
@@ -40,36 +58,6 @@
 
 		}
 
-
-
-
-
-
-		
-		if ( $wpdb->get_row( "SELECT post_name FROM {$wpdb->prefix}posts WHERE post_name = 'pps-cart-page'", 'ARRAY_A' == null ) ) {
-			
-		echo 'true - 990'; 
-			// $current_user = wp_get_current_user();
-
-			// $baseName = 'HintonBurger';
-			// $location = 'Westboro, Richmond rd.';
-			// $restaurant_owner_id = 62;
-			
-			// // create post object
-			// $page = array(
-			//   'post_title'  => __( 'New Page' ),
-			//   'post_status' => 'publish',
-			//   'post_author' => $current_user->ID,
-			//   'post_type'   => 'page',
-			// );
-			
-			// // insert the post into the database
-			// wp_insert_post( $page );
-
-		}else{
-			  // This is actually true because it gets hit even though it creates an error.
-
-			}
 
 	
 	}
@@ -81,8 +69,7 @@
 				
 				'name' => 'Cars',
 				'singular_name' => 'Car',
-				
-				
+					
 		),
 		
 			'public' => true,
@@ -92,12 +79,11 @@
 			
 		);
 		
-		register_post_type('cars', $args);
+		register_post_type('cars', $args);		
 		
-		
-		}
+	}
 
- }
+}
 
 
 
