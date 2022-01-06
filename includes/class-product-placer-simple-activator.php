@@ -16,6 +16,7 @@
 
 		
 		$content_in_page = '
+		<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 		<tr class="wpspsc_checkout_form"><td colspan="4"><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 			<input type="hidden" name="item_name_1" value="Test Product">
 			<input type="hidden" name="amount_1" value="29.95">
