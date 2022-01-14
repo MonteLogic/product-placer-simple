@@ -105,5 +105,10 @@ class Product_Placer_Simple_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-placer-simple-public.js', array( 'jquery' ), $this->version, false );
 
 	}
+    public function shortcode_name_example() {
+		echo "504";
+
+	}
+
 
 }

@@ -213,6 +213,9 @@ class Product_Placer_Simple {
 	// line 225 is the erroneous line.
 	//	$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_media' );
 
+		$this->loader->add_shortcode( 'shortcodename', $plugin_public, 'shortcode_name_example' );
+
+
 	}
 
 	/**
