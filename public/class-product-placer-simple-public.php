@@ -105,8 +105,22 @@ class Product_Placer_Simple_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/product-placer-simple-public.js', array( 'jquery' ), $this->version, false );
 
 	}
-    public function shortcode_name_example() {
-		echo "504";
+    public function shortcode_name_example($atts, $content = null) {
+		
+
+		$atts = shortcode_atts(
+			array(
+			'title' => 'Default Title',
+			'src' => 'google.com'
+			), $atts
+
+		);
+
+		print_r($atts);
+
+		return '<p>Return statement from the shortcode_name_example.</p>';
+
+
 
 	}
 
